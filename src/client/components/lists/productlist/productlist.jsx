@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsArrowRight } from "react-icons/bs";
-import productImage from '/Users/hedu/WebstormProjects/shopping/src/client/components/lists/productlist/asset/s-l500.png';
+import productImage from '/Users/hedu/Downloads/app/shopping/src/client/components/lists/productlist/asset/s-l500.png';
 
 function ProductList() {
     const products = [

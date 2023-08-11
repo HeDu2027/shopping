@@ -3,10 +3,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import styled from 'styled-components';
 
-import Image1 from '/Users/hedu/WebstormProjects/shopping/src/client/components/banner/asset/截屏2023-08-03 14.24.36.png';
-import Image2 from '/Users/hedu/WebstormProjects/shopping/src/client/components/banner/asset/截屏2023-08-03 14.26.48.png'
-import Image from '/Users/hedu/WebstormProjects/shopping/src/client/components/banner/asset/截屏2023-08-03 14.24.36.png'
-import Image3 from '/Users/hedu/WebstormProjects/shopping/src/client/components/banner/asset/截屏2023-08-03 14.26.52.png'
+import Image1 from '/Users/hedu/Downloads/app/shopping/src/client/components/banner/asset/截屏2023-08-03 14.24.36.png';
+import Image2 from '/Users/hedu/Downloads/app/shopping/src/client/components/banner/asset/截屏2023-08-03 14.26.48.png'
+import Image from '/Users/hedu/Downloads/app/shopping/src/client/components/banner/asset/截屏2023-08-03 14.24.36.png'
+import Image3 from '/Users/hedu/Downloads/app/shopping/src/client/components/banner/asset/截屏2023-08-03 14.26.52.png'
 
 const StyledCarousel = styled(Carousel)`
     .control-arrow {

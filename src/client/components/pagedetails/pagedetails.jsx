@@ -2,13 +2,13 @@ import React, {useState,useEffect} from "react";
 import Searchbar from "../searchbar/searchbar";
 import {PiArrowUUpLeftBold, PiCurrencyDollarSimpleFill} from "react-icons/pi";
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import image1 from '/Users/hedu/WebstormProjects/shopping/src/client/components/pagedetails/asset/s-l1600.jpg'
-import image2 from '/Users/hedu/WebstormProjects/shopping/src/client/components/pagedetails/asset/s-l16001.jpg'
-import image3 from '/Users/hedu/WebstormProjects/shopping/src/client/components/pagedetails/asset/s-l16002.jpg'
-import image4 from '/Users/hedu/WebstormProjects/shopping/src/client/components/pagedetails/asset/s-l16003.jpg'
-import image5 from '/Users/hedu/WebstormProjects/shopping/src/client/components/pagedetails/asset/s-l16004.jpg'
-import image6 from '/Users/hedu/WebstormProjects/shopping/src/client/components/pagedetails/asset/s-l16005.jpg'
-import image7 from '/Users/hedu/WebstormProjects/shopping/src/client/components/pagedetails/asset/s-l16007.jpg'
+import image1 from '/Users/hedu/Downloads/app/shopping/src/client/components/pagedetails/asset/s-l1600.jpg'
+import image2 from '/Users/hedu/Downloads/app/shopping/src/client/components/pagedetails/asset/s-l16001.jpg'
+import image3 from '/Users/hedu/Downloads/app/shopping/src/client/components/pagedetails/asset/s-l16002.jpg'
+import image4 from '/Users/hedu/Downloads/app/shopping/src/client/components/pagedetails/asset/s-l16003.jpg'
+import image5 from '/Users/hedu/Downloads/app/shopping/src/client/components/pagedetails/asset/s-l16004.jpg'
+import image6 from '/Users/hedu/Downloads/app/shopping/src/client/components/pagedetails/asset/s-l16005.jpg'
+import image7 from '/Users/hedu/Downloads/app/shopping/src/client/components/pagedetails/asset/s-l16007.jpg'
 import Topbar from "../topbar/topbar";
 import {BsLightningCharge, BsPatchCheckFill} from "react-icons/bs";
 import {BiSolidBadgeDollar} from "react-icons/bi";

@@ -1,7 +1,7 @@
 import React from "react";
 import Product from "./product/product";
 
-import image from '/Users/hedu/WebstormProjects/shopping/src/client/components/productdetails/asset/s-l1600.jpg';
+import image from '/Users/hedu/Downloads/app/shopping/src/client/components/productdetails/asset/s-l1600.jpg';
 
 const productData = [
     { name: 'Apple MacBook Pro', price: 'US $1999.99', stock: 20, image: image },

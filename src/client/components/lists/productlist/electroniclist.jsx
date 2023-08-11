@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsArrowRight } from "react-icons/bs";
-import productImage from '/Users/hedu/WebstormProjects/shopping/src/client/components/lists/productlist/asset/Apple_new_macbookair_wallpaper_screen_11102020_big.jpg.large.jpg';
+import productImage from '/Users/hedu/Downloads/app/shopping/src/client/components/lists/productlist/asset/Apple_new_macbookair_wallpaper_screen_11102020_big.jpg.large.jpg';
 
 function ElectronicList() {
     const electronicproducts = [
