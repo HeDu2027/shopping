@@ -54,8 +54,8 @@ const Footer = () => {
         <footer style={{
             display: 'flex',
             justifyContent: 'space-between',
-            width: '67%',
-            position: 'absolute',
+            width: '150%',
+            position: 'relative',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)' }}>

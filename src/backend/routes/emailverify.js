@@ -16,7 +16,6 @@ router.post('/send-email', (req, res) => {
     });
 
     let code = Math.floor(Math.random() * 900000) + 100000; // 生成随机验证码
-
     let mailOptions = {
         from: 'xixiqingcheng@gmail.com',
         to: req.body.email,
@@ -100,7 +99,6 @@ router.post('/confirm-email', (req, res) => {
             return res.status(500).json({ message: 'An error occurred' });
         });
 });
-
 
 module.exports = router;
 

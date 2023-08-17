@@ -3,6 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 import Cart from "../shoppingcart/cart";
 import products from "../shoppingcart/products";
+import {Link} from "react-router-dom";
 
 const Topbar = () => {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -62,15 +63,19 @@ const Topbar = () => {
                 }}
             >
                 <div style={{padding: "0 1px"}}>
-                    <p style={{margin: "0"}}>Hi <a style={{color: "black"}}>Sign in</a></p>
+                    <p style={{margin: "0"}}>
+                        Hi <Link to="/sign" style={{color: "black"}}>Sign Up</Link>
+                    </p>
                 </div>
 
                 <div style={{padding: "0 2px"}}>
                     <p style={{margin: "0"}}>or</p>
                 </div>
 
-                <div style={{padding: "0 2px"}}>
-                    <a style={{color: "black"}}>Register</a>
+                <div style={{padding: "0 1px"}}>
+                    <p style={{margin: "0"}}>
+                        Hi <Link to="/login" style={{color: "black"}}>Log in</Link>
+                    </p>
                 </div>
 
                 <div style={{padding: "0 30px"}}>Daily Deals</div>

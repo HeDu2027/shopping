@@ -19,9 +19,10 @@ const Banner = () => {
         <div style={{
             width:'60%',
             height:'10%',
-            position: 'absolute',
+            position: 'relative',
             left: '50%',
             transform: 'translate(-50%, -50%)',
+            borderRadius:'5px'
         }}>
             <StyledCarousel
                 autoPlay
@@ -32,7 +33,7 @@ const Banner = () => {
                 showIndicators={false}
                 showArrows={true} // 显示左右箭头
                 dynamicHeight={false}
-                style={{ width: '80%', height: '100%' }} // 修改Carousel的高度为100%
+                style={{ width: '80%', height: '100%',borderRadius:'5px' }} // 修改Carousel的高度为100%
             >
                 <div>
                     <img src={Image} alt="Image" style={{ width: '100%', height: '50%' }} />

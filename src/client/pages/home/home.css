@@ -1,0 +1,19 @@
+/* Home.css */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* This will ensure the container takes up the full viewport height */
+    padding: 20px; /* Some padding to ensure components don't stick to the edge */
+}
+
+/* If you want some spacing between the components */
+.home-container > * {
+    margin-bottom: 20px;
+}
+
+/* If you want to reset the margin for the last child */
+.home-container > *:last-child {
+    margin-bottom: 0;
+}

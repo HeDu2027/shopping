@@ -20,6 +20,7 @@ router.post('/api/signup', async (req, res) => {
         password: hashedPassword,
     });
 
+
     newUser.save()
         .then((user) => {
             console.log('Registered user:', user);

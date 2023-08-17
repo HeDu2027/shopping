@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const router = express.Router();
 
-
 router.post('/process-google-pay', async (req, res) => {
     const paymentData = req.body.paymentData;
 

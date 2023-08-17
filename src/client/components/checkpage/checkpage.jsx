@@ -8,7 +8,6 @@ import {PiCurrencyDollarFill} from "react-icons/pi";
 import google from "../../auth/google";
 import {RiWechatPayFill} from "react-icons/ri";
 import WeixinJSBridge from "q";
-import * as wx from "dotenv";
 
 const Checkpage = () => {
 
@@ -38,21 +37,6 @@ const Checkpage = () => {
 
     const [paymentMethod, setPaymentMethod] = useState(null);
 
-    useEffect(() => {
-        // 获取配置参数，例如从你的后端API
-        fetch('/api/getWeChatConfig')
-            .then(response => response.json())
-            .then(data => {
-                wx.config({
-                    debug: true,
-                    appId: data.appId,
-                    timestamp: data.timestamp,
-                    nonceStr: data.nonceStr,
-                    signature: data.signature,
-                    jsApiList: ['chooseWXPay']
-                });
-            });
-    }, []);
     const handleWechatPay = async () => {
         try {
             const response = await fetch('/api/wechatpay');

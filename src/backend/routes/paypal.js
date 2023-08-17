@@ -9,6 +9,7 @@ paypal.configure({
     'client_secret': 'EH63jDZL03T-28-lweAC7LCEXZZ9LvTi0PiA8VgNRQf9tRHp-P6arXkQ1UZQCwv9btdQoqdzEkVDnUPT'
 });
 
+
 router.post('/pay', (req, res) => {
     const payment = {
         "intent": "sale",

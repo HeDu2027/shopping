@@ -1,0 +1,133 @@
+.instant-message-container {
+    font-family: 'Arial', sans-serif;
+    width: 55%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/Users/hedu/Downloads/app/shopping/src/client/pages/message/asset/截屏2023-08-16 23.41.11.png');
+    background-repeat: repeat;
+}
+
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    border-bottom: none;
+    background-image: url('/Users/hedu/Downloads/app/shopping/src/client/pages/message/asset/截屏2023-08-16 23.41.11.png');
+    background-repeat: repeat;
+}
+
+.chat-history p {
+    background-color: #E0FCD6; /* Light green for sent messages */
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    max-width: fit-content;
+    align-self: flex-end;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: transparent; /* WhatsApp green */
+    color: gray;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/*button:hover {*/
+/*    background-color: #F5F6F6; !* Darker green on hover *!*/
+/*}*/
+
+button[type="submit"] {
+    background-color: transparent; /* WhatsApp dark green for send button */
+}
+
+/*button[type="submit"]:hover {*/
+/*    background-color: #054D44; !* Even darker green on hover for send button *!*/
+/*}*/
+
+form {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-top: none;
+}
+
+.button-list {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 70px; /* Position the button list 20px above the input bar */
+    left: 8%;
+    transform: translateX(-50%); /* Center the list horizontally relative to the input bar */
+    z-index: 10;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.list-button {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    margin-top: 500px;
+}
+
+.list-button:hover {
+    background-color: #128C7E;
+}
+
+.list-button svg {
+    margin-right: 10px;
+}
+
+.button-container{
+    height: 50px;
+    width: 220px;
+    background-color: whitesmoke;
+    font-size: medium;
+    color: black;
+    padding-left: 20px;
+}
+
+.button-container-frist{
+    height: 60px;
+    width: 220px;
+    padding-top: 8px;
+    background-color: whitesmoke;
+    font-size: medium;
+    color: darkgray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.emoji-picker-container .emoji-picker-react {
+    max-width: 80% !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+}
+
+.emoji-picker-container .emoji-picker-react .emoji-categories {
+    max-height: calc(300px - 40px) !important; /* 40px is an estimated height for the category selector, adjust if needed */
+    overflow-y: auto !important;
+}
+

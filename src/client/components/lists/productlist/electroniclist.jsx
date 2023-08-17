@@ -4,18 +4,22 @@ import productImage from '/Users/hedu/Downloads/app/shopping/src/client/componen
 
 function ElectronicList() {
     const electronicproducts = [
-        {image: productImage, description: 'Product 1'},
-        {image: productImage, description: 'Product 2'},
-        {image: productImage, description: 'Product 3'},
-        {image: productImage, description: 'Product 4'},
-        {image: productImage, description: 'Product 5'},
-        {image: productImage, description: 'Product 6'},
-        {image: productImage, description: 'Product 7'},
+        {image: productImage, description: 'Macbook Air'},
+        {image: productImage, description: 'iMac'},
+        {image: productImage, description: 'iPad'},
+        {image: productImage, description: 'iPhone'},
+        {image: productImage, description: 'Mac mini'},
+        {image: productImage, description: 'Macbook Pro'},
+        {image: productImage, description: 'iPad mini'},
         // Add more products as needed
     ];
 
     return (
-        <div>
+        <div style={{
+            justifyContent:'center',
+            alignItems:'center',
+            margin:'0 0 0 30px'
+        }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <h1>All these apple's trending </h1>
                 <div style={{ marginRight: '50px' }}>
@@ -25,9 +29,9 @@ function ElectronicList() {
                     <p>See all <BsArrowRight /></p>
                 </a>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between',border:'none'}}>
                 {electronicproducts.map((product, index) => (
-                    <div key={index} style={{ border: 'none'}} onMouseEnter={e => e.target.style.border = '1px solid black'} onMouseLeave={e => e.target.style.border = '1px solid transparent'}>
+                    <div key={index} style={{ border: 'none',padding:'5px'}} onMouseEnter={e => e.target.style.border = '1px solid black'} onMouseLeave={e => e.target.style.border = '1px solid transparent'}>
                         <img src={product.image} alt={product.description} style={{width:'150px'}} />
                         <a href={`#${product.description.replace(/\s+/g, '-')}`}>{product.description}</a>
                     </div>
