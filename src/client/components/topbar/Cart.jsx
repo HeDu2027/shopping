@@ -22,9 +22,11 @@ const Cart = ({ cart }) => {
                             <p>{product.name}</p>
                         </div>
                         <p>{product.price}</p>
-                        <button onClick={() => increaseQuantity(product.id)}>+</button>
-                        <p>Quantity: {product.quantity}</p>
-                        <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                        <div>
+                            <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                            <p>Quantity: {product.quantity} (Stock left: {product.stock})</p>
+                            <button onClick={() => increaseQuantity(product.id)}>+</button>
+                        </div>
                         <button onClick={() => removeFromCart(product.id)}>Remove</button>
                     </div>
                 ))
