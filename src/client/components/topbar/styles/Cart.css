@@ -33,11 +33,16 @@
     z-index: 9998; /* Ensure it's below the cart but above other elements */
 }
 
+.cart-name{
+    width: 200px;
+}
+
 .cart-product {
     top: 30px;
     left: 1200px;
     display: flex;
-    width: 400px;
+    width: fit-content;
+    border-radius: 15px;
     background-color: #25D366 ;
     align-items: center;
     justify-content: space-between;

@@ -35,8 +35,31 @@ export const CartProvider = ({ children }) => {
         }
     };
 
+    const increaseQuantity = (productId) => {
+        const productIndex = cart.findIndex(p => p.id === productId);
+        if (productIndex !== -1) {
+            const updatedCart = [...cart];
+            updatedCart[productIndex].quantity += 1;
+            setCart(updatedCart);
+        }
+    };
+
+    const decreaseQuantity = (productId) => {
+        const productIndex = cart.findIndex(p => p.id === productId);
+        if (productIndex !== -1) {
+            const updatedCart = [...cart];
+            if (updatedCart[productIndex].quantity > 1) {
+                updatedCart[productIndex].quantity -= 1;
+                setCart(updatedCart);
+            } else {
+                removeFromCart(productId);
+            }
+        }
+    };
+
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart,increaseQuantity,decreaseQuantity }}>
             {children}
         </CartContext.Provider>
     );

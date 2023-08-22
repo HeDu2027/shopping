@@ -3,8 +3,7 @@ import './styles/Cart.css';
 import {useCart} from "./CartContext";
 
 const Cart = ({ cart }) => {
-    const { removeFromCart } = useCart();
-
+    const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
     const calculateCartHeight = () => {
         return 50 * cart.length;
     };
@@ -19,9 +18,13 @@ const Cart = ({ cart }) => {
                 cart.map(product => (
                     <div key={product.id} className="cart-product">
                         <img src={product.mainImage} alt={product.name} className="product-image" />
-                        <p>{product.name}</p>
+                        <div className="cart-name">
+                            <p>{product.name}</p>
+                        </div>
                         <p>{product.price}</p>
+                        <button onClick={() => increaseQuantity(product.id)}>+</button>
                         <p>Quantity: {product.quantity}</p>
+                        <button onClick={() => decreaseQuantity(product.id)}>-</button>
                         <button onClick={() => removeFromCart(product.id)}>Remove</button>
                     </div>
                 ))
