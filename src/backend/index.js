@@ -27,6 +27,8 @@ const locationRoutes = require('./routes/locationRoutes');
 const fileRoutes = require('./routes/fileRoutes');
 const videoCallRoutes = require('./routes/videoCallRoutes');
 const screenShareRoutes = require('./routes/screenShareRoutes');
+const translationRoutes=require('./routes/transalation')
+const placeRoutes=require('./routes/place')
 
 const app = express();
 const server = http.createServer(app);
@@ -72,7 +74,8 @@ app.use('/', fileRoutes);
 app.use('/video-call', videoCallRoutes);
 //app.use('/messages', messageRoutes);
 app.use('/screen-share', screenShareRoutes);
-
+app.use('/routes',translationRoutes);
+app.use('/api',placeRoutes)
 io.on('connection', (socket) => {
     console.log('a user connected');
 
@@ -84,6 +87,7 @@ io.on('connection', (socket) => {
             console.error("Invalid message type:", messageObj.type);
             return;
         }
+
 
         // Save the message to MongoDB
         const newMessage = new Message({

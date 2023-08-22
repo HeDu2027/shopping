@@ -1,0 +1,12 @@
+.productsContainer {
+    display: grid;
+    gap: 10px;
+}
+
+.gridLayout {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.listLayout {
+    grid-template-columns: repeat(1, 1fr);
+}

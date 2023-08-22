@@ -1,6 +1,7 @@
 import React from 'react';
-import ElectronicList from "./productlist/electroniclist";
+import ElectronicList from "./productlist/ElectronicList";
 import ProductList from "./productlist/productlist";
+import Showbar from "../pagedetail/suggestshow/showbar";
 
 const List = () => {
   return(

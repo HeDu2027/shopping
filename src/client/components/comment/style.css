@@ -1,0 +1,249 @@
+/* whatsappStyle.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ECE5DD;
+    color: #4A4A4A;
+    height: 100vh; /* Set height to 100vh */
+    display: flex;
+    justify-content: center;
+    //align-items: center; /* Center content vertically */
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Prevent overflow */
+    overflow-y: auto;
+}
+
+.app {
+    max-width: 600px;
+    height: auto; /* Set height to 100vh */
+    min-height: 100vh;
+    padding-bottom: 60px;
+    margin: 0 auto; /* Center content horizontally */
+    border-radius: 10px;
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+.comment-section {
+    background-color: #DCF8C6;
+    padding: 20px;
+    padding-bottom: 80px; /* Space for the comment-form */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}
+
+/* whatsappStyle.css */
+
+/* ... existing styles ... */
+
+.comment-form {
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* At the bottom of the viewport */
+    width: 100%; /* Full width */
+    max-width: 1280px; /* Max width */
+    background-color: #F0F0F0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000; /* High z-index to ensure it's in front of other content */
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    width: 80%; /* Same width */
+    height: 40px; /* Same height */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    resize: none; /* Prevent resizing of textarea */
+}
+
+.comment-form textarea {
+    height: 80px; /* Adjusted height for textarea */
+}
+
+.comment-form .rating-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 5px; /* Spacing between label and stars */
+}
+
+.comment-form .rating-container label {
+    margin-right: 10px; /* Spacing between label and stars */
+}
+
+.comment-form .rating-container .stars {
+    display: flex;
+    gap: 5px; /* Spacing between stars */
+}
+
+.comment-form button {
+    background-color: #075E54;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px 0; /* Adjusted margin for better spacing */
+}
+
+.comment-form button:hover {
+    background-color: #054C43;
+}
+
+/* ... rest of your styles ... */
+
+
+.comment-list .comment {
+    max-width: 90%;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    //margin-bottom: 10px;
+    position: relative;
+    margin: 50px;
+}
+
+.comment-list .comment .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comment-list .comment .user-info img {
+    width: 1000px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-list .comment .stars {
+    font-size: 12px;
+    color: #FFD700; /* Gold color for stars */
+    margin-bottom: 5px;
+}
+
+.comment-list .comment .comment-content p {
+    margin: 0;
+}
+
+.comment-list .comment:after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: #ffffff;
+    transform: translateY(-50%);
+}
+
+/* style.css */
+
+/* ... other styles ... */
+
+.uploaded-images img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* This will ensure the image covers the entire space without distortion */
+    margin: 5px; /* Optional: to give some space between images */
+}
+
+.comment-content video {
+    width: 200px;
+    height: 200px;
+}
+
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.search-container input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container input, .search-container select {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container input, .search-container select {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* whatsappStyle.css */
+
+/* ... existing styles ... */
+
+.pagination {
+    position: absolute; /* Absolute positioning */
+    bottom: 10px; /* 10px from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+}
+
+.page-item {
+    list-style-type: none;
+    margin: 0 5px;
+}
+
+.page-link {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.page-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* ... rest of your styles ... */
+
+
+.reply-container {
+    width: 1000px; /* 80% of comment-list width */
+    max-height: 1000px; /* Default height */
+    overflow-y: auto; /* Scroll if content is too long */
+    transition: max-height 0.3s; /* Smooth transition for height changes */
+    margin: 10px 0; /* Optional: to give some space around the reply container */
+}
+
+.comment-list:hover .reply-container {
+    max-height: 200px; /* Adjust this value based on your preference */
+}
+
+

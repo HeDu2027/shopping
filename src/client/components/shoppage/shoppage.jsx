@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Topbar from "../topbar/topbar";
 import Searchbar from "../searchbar/searchbar";
 
 const Shoppage = () => {
@@ -13,9 +12,7 @@ const Shoppage = () => {
   return(
       <div style={{display:'flex', flexDirection: 'column', alignItems: 'center',height:'1200px'}}>
           <div style={{width: '1200px', margin: '0 auto'}}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '50px', marginBottom: '0px' }}>
-                  <Topbar/>
-              </div>
+
               <div style={{ display: 'flex', justifyContent: 'center', height: '50px', marginBottom: '0px' }}>
                   <Searchbar/>
               </div>

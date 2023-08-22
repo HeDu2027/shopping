@@ -1,0 +1,70 @@
+/* Pagedetail.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.buttoncontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+}
+
+.itemButton {
+    height: 40px;
+    width: 160px;
+    border-radius: 6px;
+    background: #1DA1F2;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.numberInput {
+    height: 35px;
+    width: 40px;
+}
+
+.tagContainer {
+    width: 200px;
+    height: 50px;
+    background: gray;
+    border-radius: 6px;
+}
+
+.titleContailer .description {
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+}
+
+.productContainer {
+    display: flex;
+}
+
+.imgContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imgContainer img {
+    width: 42px;
+    height: 42px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.imgContainer img[selected="true"] {
+    border: 2px solid blue;
+}

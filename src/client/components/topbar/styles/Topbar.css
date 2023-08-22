@@ -1,0 +1,123 @@
+.topbar-wrapper {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif; /* Using Arial font, similar to WhatsApp */
+}
+
+.topbar-wrapper > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: wheat; /* WhatsApp green color */
+    padding: 10px;
+    color: white;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.topbar-wrapper a {
+    color: white; /* Changing link color to white for better visibility */
+    text-decoration: none; /* Removing underline from links */
+}
+
+.topbar-wrapper a:hover {
+    text-decoration: underline; /* Adding underline on hover for better UX */
+}
+
+.topbar-wrapper select {
+    background-color: #075E54;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.topbar-wrapper .BsBell, .topbar-wrapper .AiOutlineShoppingCart {
+    color: white;
+    cursor: pointer;
+}
+
+.topbar-wrapper .show-cart, .topbar-wrapper .dropdown {
+    position: absolute;
+    top: 100%;
+    background-color: #128C7E; /* Slightly lighter green for dropdowns */
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 6px; /* Adding border-radius for smoother appearance */
+}
+
+.topbar-wrapper .show-cart {
+    right: -20%;
+    transform: translateX(-50%);
+    width: 260px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+}
+
+.topbar-wrapper .dropdown {
+    left: 80%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+}
+
+.topbar-wrapper .dropdown div {
+    padding: 10px 0;
+}
+
+.topbar-wrapper .dropdown div:hover {
+    background-color: #0B8AD9; /* Slightly darker green for hover effect */
+}
+
+.topbar-wrapper .dropdown hr {
+    margin: 5px 0;
+    border-color: white; /* Making the hr color white for visibility */
+}
+
+.search-section {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-input {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px 10px 5px 35px; /* Left padding to make space for the search icon */
+    border: 1px solid #ccc;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: #888;
+}
+
+.cart-icon-wrapper {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.cart-overlay {
+    z-index: 9999; /* This ensures it's on top of most other elements */
+    position: fixed; /* This ensures it's fixed and covers the entire viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a semi-transparent background */
+}
+

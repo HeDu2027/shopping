@@ -1,32 +1,19 @@
 import React from "react";
-
-const styles={
-    productcontainer:{
-        height:'300px',
-        width:'300px',
-        overflow: 'hidden', // Add this line
-    },
-    imagecontainer:{
-        height:'60%',
-        width: '60%',
-    },
-    // Other styles remain the same
-}
-
+import './Product.css';
+import StarRating from "../../../pagedetail/suggestshow/StarRating";
 const Product = ({ product }) => {
-    return(
-        <div className='productcontainer' style={styles.productcontainer}>
-            <div className='imagecontainer' style={styles.imagecontainer}>
-                <img src={product.image} alt={product.name} style={{width: '100%', height: '100%'}}/>
+    return (
+        <div className='productcontainer'>
+            <div className='imagecontainer'>
+                <img src={product.image} alt={product.name} className="image" />
             </div>
-            <div className='infocontainer' style={styles.infocontainer}>
-                <p>{product.name}</p>
-                <p>{product.price}</p>
-                <p>{product.stock}</p>
-            </div>
+            <p className="productName">{product.name}</p>
+            <p className="productPrice">{product.price}</p>
+            <StarRating score={product.rating} />
+            <button className="addToCartButton">Add to cart</button>
+            <p className="productStock">{product.stock} in stock</p>
         </div>
     )
 }
 
-
-export default Product
+export default Product;

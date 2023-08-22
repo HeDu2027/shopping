@@ -1,0 +1,76 @@
+.cart-overlay {
+    position: fixed;
+    top: 30px;
+    right: 0;
+    width: 100px;
+    background-color: #25D366;
+    border: 1px solid #ddd;
+    z-index: 9999;
+}
+
+
+.empty-cart {
+    position: absolute;
+    top: 30px;
+    left: 1200px;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    color: #888;
+    background-color: #25D366; /* WhatsApp logo color */
+}
+
+.cart-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998; /* Ensure it's below the cart but above other elements */
+}
+
+.cart-product {
+    display: flex;
+    width: 100px;
+    background-color: #25D366 ;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cart-product img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.cart-product-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-product-name {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+.cart-product-price {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+
+.cart-product-remove {
+    color: #f00;
+    cursor: pointer;
+    margin-left: 10px;
+}

@@ -1,0 +1,175 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ECE5DD; /* WhatsApp background color */
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    max-width: 100%;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.searchcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ECE5DD;
+}
+
+.search-inner-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ECE5DD;
+    background-color: #F2F2F2;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.search-input:focus {
+    background-color: #ECE5DD;
+    outline: none;
+}
+
+.searchlabel {
+    margin: 0 15px;
+    color: #888;
+}
+
+.ItemSelect, .PriceRangeSelect, .RatingSelect {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: 1px solid #ECE5DD;
+    background-color: #F2F2F2;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.ItemSelect:focus, .PriceRangeSelect:focus, .RatingSelect:focus {
+    background-color: #ECE5DD;
+    outline: none;
+}
+
+.ItemSelect:hover, .PriceRangeSelect:hover, .RatingSelect:hover {
+    background-color: #ECE5DD;
+}
+
+.spacer {
+    width: 10px;
+}
+
+.contentcontainer {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.footercontainer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #ECE5DD;
+    background-color: #F9F9F9;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Grid and List Layouts */
+.contentcontainer.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.contentcontainer.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Dropdown Styles */
+.dropdown-toggle {
+    background-color: #F2F2F2;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-toggle:hover {
+    background-color: #ECE5DD;
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #ECE5DD;
+}
+
+/* Pagination Styles */
+.pagination {
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.pagination .page-link {
+    border-radius: 20px;
+    color: #25D366;
+    background-color: transparent;
+    border: 1px solid #25D366;
+    padding: 5px 12px;
+    transition: background-color 0.3s;
+}
+
+.pagination .page-link:hover {
+    background-color: #ECE5DD;
+    color: #25D366;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #25D366;
+    color: #FFF;
+    border: 1px solid #25D366;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for active page link */
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #888;
+    pointer-events: none;
+    border: 1px solid #888;
+}

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { readAndCompressImage } from 'browser-image-resizer';
 import {imageConfig}  from './image-config';
 import axios from "axios";
+import './leaveMessageStyle.css';
+import {Link} from "react-router-dom";
+
 const LeaveMessage = () => {
     const [message, setMessage] = useState('');
     const [type, setType] = useState('Feedback');
@@ -74,6 +77,9 @@ const LeaveMessage = () => {
             <input type="file" onChange={handleImageChange} accept="image/*" />
 
             <button onClick={handleSubmit}>Submit</button>
+            <Link to="/instantmessage">
+                <button>Online Chat</button>
+            </Link>
         </div>
     );
 };

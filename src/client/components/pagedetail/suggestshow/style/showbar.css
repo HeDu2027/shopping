@@ -1,0 +1,43 @@
+/* Showbar Styles */
+.showbar-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.showbar-container {
+    flex-grow: 1;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    scroll-behavior: smooth;
+    height: auto;
+    width: 100%;
+}
+
+.showbar-item {
+    flex: none;
+    margin-right: 10px;
+}
+
+
+.arrow-icon {
+    cursor: pointer;
+    z-index: 2;
+    margin: 0 10px;
+    color: #00aced; /* Ensure the arrow color is visible */
+}
+
+.showbar-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide default scrollbar for IE, Edge, and Firefox */
+.showbar-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
