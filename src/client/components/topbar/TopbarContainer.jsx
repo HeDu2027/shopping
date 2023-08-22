@@ -6,6 +6,7 @@ import {useCart} from "./CartContext";
 
 const TopbarContainer = () => {
     const { cart, addToCart } = useCart(); // Get cart and addToCart from context
+    console.log(cart);  // Log the cart here
     const [showCart, setShowCart] = useState(false);
 
     const toggleCartVisibility = () => {

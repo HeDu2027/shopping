@@ -1,32 +1,15 @@
 import React, {useState} from "react";
-import SearchBar from "../../components/searchbar/searchbar";
 import Banner from "../../components/banner/banner";
 import Footer from "../../components/footer/footer";
 import Discount from "../../components/discount/discount";
 import './home.css'; // Importing the CSS file
-import {ProductData,ClothingData} from "../../data/ProductData";
 import Showbar from "../../components/pagedetail/suggestshow/showbar";
 import {Data} from "../../data/datas";
 import TopbarContainer from "../../components/topbar/TopbarContainer";
+import {useCart} from "../../components/topbar/CartContext";
 const Home = () => {
 
-    const [cart, setCart] = useState([]);
-
-    const addToCart = (productToAdd) => {
-        // Check if adding would exceed stock
-        const quantityInCart = cart.filter(p => p.id === productToAdd.id).length;
-        if (quantityInCart + 1 > productToAdd.stock) {
-            // Show out of stock message
-            alert("Out of stock! Please contact the owner of this shop.");
-            return;
-        }
-
-        // Add product to cart
-        setCart(prevCart => [...prevCart, productToAdd]);
-    };
-
-
-
+    const { cart, addToCart } = useCart();
 
     return(
         <div className="home-container">

@@ -34,8 +34,10 @@
 }
 
 .cart-product {
+    top: 30px;
+    left: 1200px;
     display: flex;
-    width: 100px;
+    width: 400px;
     background-color: #25D366 ;
     align-items: center;
     justify-content: space-between;

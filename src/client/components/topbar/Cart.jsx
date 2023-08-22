@@ -21,11 +21,10 @@ const Cart = ({ cart }) => {
                         <img src={product.mainImage} alt={product.name} className="product-image" />
                         <p>{product.name}</p>
                         <p>{product.price}</p>
+                        <p>Quantity: {product.quantity}</p>
                         <button onClick={() => removeFromCart(product.id)}>Remove</button>
                     </div>
                 ))
-
-
 
             )}
         </div>
