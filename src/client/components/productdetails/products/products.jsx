@@ -3,10 +3,8 @@ import Product from "./product/product";
 import productData from './productData'; // Importing the data
 import './Products.css';
 
-const Products = ({ currentPage, sortOption, searchTerm, layout, ratingFilter, productsPerPage ,filteredProducts}) => {
-    //let filteredProducts = [...productData];
+const Products = ({ layout, currentPage, sortOption, searchTerm, ratingFilter, products, filteredProducts, productsPerPage, addToCart }) => {
 
-    // Filter products based on the search term
     if (searchTerm) {
         filteredProducts = filteredProducts.filter(product =>
             product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -34,7 +32,7 @@ const Products = ({ currentPage, sortOption, searchTerm, layout, ratingFilter, p
     return (
         <div className={`productsContainer ${layout === 'grid' ? 'gridLayout' : 'listLayout'}`}>
             {displayedProducts.map((product, index) => (
-                <Product key={index} product={product} />
+                <Product key={index} product={product} addToCart={addToCart}/>
             ))}
         </div>
     );

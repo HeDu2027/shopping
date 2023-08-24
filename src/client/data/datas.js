@@ -1,11 +1,9 @@
+import {getRandomRating} from './config/getRandomRating'
 const imageContext = require.context('/Users/hedu/Downloads/app/shopping/src/client/data/assets', false, /\.(png|jpe?g|webp)$/);
 
 // Create the images array using the imageContext
 const images = imageContext.keys().map(imageContext);
-const getRandomRating = () => {
-    const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-    return ratings[Math.floor(Math.random() * ratings.length)];
-};
+
 
 export const Data = [
     {

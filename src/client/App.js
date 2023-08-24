@@ -68,7 +68,12 @@ function App() {
                     <Route path="/searchbar" element={<Searchbar/>}/>
                     <Route path="/footer" element={<Footer/>}/>
                     <Route path="/banner" element={<Banner/>}/>
-                    <Route path="/productcontainer" element={<Productcontainer/>}/>
+
+                    <Route
+                        path="/productcontainer/:category"
+                        element={<Productcontainer key={window.location.pathname} />}
+                    />
+
                     <Route path="/cart" element={<Cart/>}/>
                     <Route path="/shoppingcart" element={<Shoppingcart/>}/>
                     <Route path="/shoppage" element={<Shoppage/>}/>

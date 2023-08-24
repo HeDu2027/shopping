@@ -1,12 +1,17 @@
 import React from "react";
 import './styles/Cart.css';
 import {useCart} from "./CartContext";
+import {Link} from "react-router-dom";
 
 const Cart = ({ cart }) => {
     const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
     const calculateCartHeight = () => {
         return 50 * cart.length;
     };
+
+    // Calculate total quantity and total price
+    const totalQuantity = cart.reduce((acc, product) => acc + product.quantity, 0);
+    const totalPrice = cart.reduce((acc, product) => acc + (product.price * product.quantity), 0).toFixed(2);
 
     return (
         <div className="cart-overlay" style={{ height: `${calculateCartHeight()}px` }}>
@@ -30,8 +35,14 @@ const Cart = ({ cart }) => {
                         <button onClick={() => removeFromCart(product.id)}>Remove</button>
                     </div>
                 ))
-
             )}
+            <div className="cart-summary">
+                <p>Total Quantity: {totalQuantity}</p>
+                <p>Total Price: ${totalPrice}</p>
+            </div>
+
+            <Link to="/newpage" className="shop-link">Zum Shop</Link>
+
         </div>
     );
 };

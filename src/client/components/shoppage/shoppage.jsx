@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Searchbar from "../searchbar/searchbar";
+ import Searchbar from "../searchbar/searchbar";
 
 const Shoppage = () => {
 

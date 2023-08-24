@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import Banner from "../../components/banner/banner";
 import Footer from "../../components/footer/footer";
-import Discount from "../../components/discount/discount";
+import Category from "../../components/Category/Category";
 import './home.css'; // Importing the CSS file
 import Showbar from "../../components/pagedetail/suggestshow/showbar";
 import {Data} from "../../data/datas";
 import TopbarContainer from "../../components/topbar/TopbarContainer";
 import {useCart} from "../../components/topbar/CartContext";
+import ServiceModule from "../../components/servicemodule/ServiceModule";
 const Home = () => {
 
     const { cart, addToCart } = useCart();
@@ -22,7 +23,7 @@ const Home = () => {
             </div>
 
             <div className="discount-container">
-                <Discount/>
+                <Category/>
             </div>
 
             <div className="list-container">
@@ -31,6 +32,10 @@ const Home = () => {
 
             <div className="list-container">
                 <Showbar addToCart={addToCart} data={Data}/>
+            </div>
+
+            <div className="servicemodule-container">
+                <ServiceModule/>
             </div>
 
             <div className="divider"></div>

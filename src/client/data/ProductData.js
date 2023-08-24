@@ -1,17 +1,15 @@
-import image from "/Users/hedu/Downloads/app/shopping/src/client/components/lists/productlist/asset/Samsung-Galaxy-S22-Ultra-5G-256-GB-phantom-white.jpg";
-import image1 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/tshirt.png"
-import image2 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/medium11.webp"
-import image3 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/MXNL2.jpg"
-import g22_1 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/g22_1.jpg"
-import g22_2 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/g22_2.jpg"
-import applewatch_0 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/applewatch_0.jpg"
-import applewatch_1 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/applewatch_1.jpg"
-import applewatch_2 from "/Users/hedu/Downloads/app/shopping/src/client/data/asset/applewatch_02.jpg"
+import image from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0007.jpg";
+import image1 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0006.jpg"
+import image2 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0008.jpg"
+import image3 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0009.jpg"
+import g22_1 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0004.jpg"
+import g22_2 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0005.jpg"
+import applewatch_0 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0001.jpg"
+import applewatch_1 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0002.jpg"
+import applewatch_2 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0003.jpg"
 
-const getRandomRating = () => {
-    const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-    return ratings[Math.floor(Math.random() * ratings.length)];
-};
+import {getRandomRating} from './config/getRandomRating'
+
 
 export const ProductData = [
     {

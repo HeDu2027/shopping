@@ -1,0 +1,129 @@
+.newpage-container {
+    background-color: #ECE5DD;
+    align-items: center;
+    height: 100%;
+}
+
+.newpage-width {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.newpage-searchbar {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-bottom: 0px;
+}
+
+.newpage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #25d366; /* WhatsApp Header Farbe */
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+.newpage-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 850px;
+}
+
+.newpage-signout {
+    border-radius: 5px;
+    height: 50px;
+    width: 1200px;
+    background-color: #25d366;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.newpage-product {
+    display: flex;
+    height: 250px;
+    width: 1200px;
+    border: none;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    padding: 20px;
+    gap: 3px;
+}
+
+.newpage-product-image {
+    height: 220px;
+    width: 220px;
+    border: none;
+    border-radius: 5px;
+}
+
+.quantity-container{
+    width:180px ;
+
+}
+.plusandminus-container{
+    display: flex;
+}
+
+.newpage-product-name {
+    padding: 30px;
+    width: 300px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+
+.newpage-product-select {
+    width: 70px;
+    height: 40px;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.newpage-product-price {
+    margin-top: 5px;
+    margin-left: 40px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.newpage-product-shipping {
+    color: #25d366;
+    margin-left: 40px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    color: gray;
+}
+
+.newpage-summary{
+    height: 160px;
+    width: 1200px;
+    border: none;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    padding: 20px;
+    gap: 3px;
+}
+
+@keyframes drop {
+    0% { transform: translateY(-30px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0; }
+}
+
+.drop-remove {
+    animation: drop 1s forwards;
+}
+

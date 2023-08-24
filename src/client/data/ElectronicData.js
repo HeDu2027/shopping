@@ -1,9 +1,6 @@
 import image from "/Users/hedu/Downloads/app/shopping/src/client/components/lists/productlist/asset/airpods-max-select-pink-202011.png";
+import {getRandomRating} from './config/getRandomRating'
 
-const getRandomRating = () => {
-    const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-    return ratings[Math.floor(Math.random() * ratings.length)];
-};
 
 const ElectronicProducts = [
     { id: 1, name: 'Apple MacBook Pro', price: 1999.99, stock: 20, image: image, rating: getRandomRating() },

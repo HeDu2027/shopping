@@ -1,7 +1,7 @@
 import React from "react";
 import './Product.css';
 import StarRating from "../../../pagedetail/suggestshow/StarRating";
-const Product = ({ product }) => {
+const Product = ({ product, addToCart }) => {
     return (
         <div className='productcontainer'>
             <div className='imagecontainer'>
@@ -10,7 +10,7 @@ const Product = ({ product }) => {
             <p className="productName">{product.name}</p>
             <p className="productPrice">{product.price}</p>
             <StarRating score={product.rating} />
-            <button className="addToCartButton">Add to cart</button>
+            <button className="addToCartButton" onClick={() => addToCart(product)}>Add to cart</button>
             <p className="productStock">{product.stock} in stock</p>
         </div>
     )

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {BiGridAlt} from "react-icons/bi";
 import {AiOutlineUnorderedList} from "react-icons/ai";
 import { Dropdown } from 'react-bootstrap';
@@ -8,7 +8,44 @@ import './Productcontainer.css'
 import productData from "./products/productData";
 import Showbar from "../pagedetail/suggestshow/showbar";
 import {ProductData} from "../../data/ProductData";
+import { useParams } from 'react-router-dom';
+import sneakersData from "../../data/sneakersData";
+import CosmeticsData from "../../data/CosmeticsData";
+import FoodsData from "../../data/FoodsData";
+import ClothingsData from "../../data/ClothingsData";
+import DrinksData from "../../data/DrinksData";
+import electronicsData from "../../data/electronicsData";
+import TopbarContainer from "../topbar/TopbarContainer";
+import {useCart} from "../topbar/CartContext";
+
+function getProductsForCategory(category) {
+    // This is just an example. You can fetch data from an API or from a static source.
+    switch(category) {
+        case 'category1':
+            return sneakersData;
+        case 'category2':
+            return CosmeticsData;
+        case 'category3':
+            return FoodsData;
+        case 'category4':
+            return ClothingsData;
+        case 'category5':
+            return DrinksData;
+        default:
+            return electronicsData;
+    }
+}
+
 const Productcontainer = () => {
+
+    const { category } = useParams();
+    const [productsForCurrentCategory, setProductsForCurrentCategory] = useState(getProductsForCategory(category));
+
+    useEffect(() => {
+        setSortedProducts(productsForCurrentCategory);
+    }, [productsForCurrentCategory]);
+
+
     const productsPerPage = 16; // Define it here
     const [show, setShow] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -16,26 +53,24 @@ const Productcontainer = () => {
     const [sortOption, setSortOption] = useState('Featured Items'); // 添加这一行
     const [layout, setLayout] = useState('grid');
     const [ratingFilter, setRatingFilter] = useState(null); // State to hold the selected rating filter
-    const [sortedProducts, setSortedProducts] = useState(productData);
+    const [sortedProducts, setSortedProducts] = useState(productsForCurrentCategory);
     const [priceRange, setPriceRange] = useState(null);
 
+
     const calculatePercentageForPriceRange = (min, max) => {
-        const count = productData.filter(product => {
+        const count = productsForCurrentCategory.filter(product => { // <-- Change here
             const productPrice = product.price;
-            // Adjusted this line
             if (max) {
                 return productPrice >= min && productPrice <= max;
             }
-            return productPrice >= min; // for >3000$ case
+            return productPrice >= min;
         }).length;
-        return ((count / productData.length) * 100).toFixed(2);
+        return ((count / productsForCurrentCategory.length) * 100).toFixed(2); // <-- Change here
     };
 
-
-    // Calculate the percentage of products for each rating
     const calculatePercentageForRating = (rating) => {
-        const count = productData.filter(product => product.rating === rating).length;
-        return ((count / productData.length) * 100).toFixed(2);
+        const count = productsForCurrentCategory.filter(product => product.rating === rating).length; // <-- Change here
+        return ((count / productsForCurrentCategory.length) * 100).toFixed(2); // <-- Change here
     };
 
 
@@ -99,11 +134,15 @@ const Productcontainer = () => {
     }
 
 
-
-
+    const { cart, addToCart } = useCart();
 
     return(
         <div className="mainContainer">
+
+            <div className="topbar-container">
+                <TopbarContainer cart={cart}/>
+            </div>
+
             <div className='container'>
                 <div className='searchcontainer'>
                     <div className="search-inner-container">
@@ -176,7 +215,8 @@ const Productcontainer = () => {
                         ratingFilter={ratingFilter}
                         products={filteredProducts}
                         filteredProducts={filteredProducts}  // Pass the filtered products
-                        productsPerPage={productsPerPage}  // Add this line
+                        productsPerPage={productsPerPage}
+                        addToCart={addToCart}
                     />
                 </div>
 

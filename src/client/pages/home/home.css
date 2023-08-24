@@ -11,11 +11,19 @@
 .topbar-container,
 .searchbar-container,
 .banner-container,
+
 .discount-container{
     width: 80%; /* Reducing the width of the list container specifically */
     max-width: 1800px; /* Setting a maximum width for the list container */
     margin-bottom: 20px; /* Adding a margin-bottom to create a gap */
 }
+
+.servicemodule-container{
+    width: 80%; /* Reducing the width of the list container specifically */
+    max-width: 1800px; /* Setting a maximum width for the list container */
+    margin-bottom: 20px; /* Adding a margin-bottom to create a gap */
+}
+
 .list-container{
     width: 80%;
     max-width: 1400px;
