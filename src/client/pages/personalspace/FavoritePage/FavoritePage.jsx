@@ -12,43 +12,54 @@ const FavoritePage = () => {
 
     useEffect(() => {
         if (!loggedInUser) {
-            console.error("loggedInUser is undefined!");
+            console.error("User is not logged in.");
             return;
         }
+
+        let favoritesArray = [];
+
+        if (loggedInUser.favorites) {
+            if (Array.isArray(loggedInUser.favorites)) {
+                // Extracting product IDs from the array of favorite objects.
+                favoritesArray = loggedInUser.favorites.map(fav => fav.productId);
+            } else {
+                console.error("Unexpected type for favorites");
+                return;  // exit useEffect
+            }
+        } else {
+            console.error("favorites is undefined or not an array!");
+            return;
+        }
+
+
+        if (!favoritesArray.length) {
+            console.warn("favorites array is empty!");
+            return;
+        }
+
         console.log("loggedInUser:", loggedInUser);
 
         const fetchFavorites = async () => {
             try {
-                let favoritesArray = [];
+                // Assuming you're storing the token in local storage
+                const token = localStorage.getItem('token');
 
-                if (loggedInUser && loggedInUser.favorites) {
-                    if (Array.isArray(loggedInUser.favorites)) {
-                        favoritesArray = loggedInUser.favorites;
-                    } else if (typeof loggedInUser.favorites === 'string') {
-                        favoritesArray = loggedInUser.favorites.split(',');
-                    }
-
-                    // Assuming you're storing the token in local storage
-                    const token = localStorage.getItem('token');
-
-                    // Check if token is null
-                    if (!token) {
-                        console.error("Token is null. Please log in again.");
-                        setError("Token is missing. Please log in again.");
-                        setLoading(false);
-                        return;
-                    }
-
-                    const response = await axios.get(`http://localhost:4000/user/${loggedInUser._id}/favorites`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-                    setProducts(response.data);
+                // Check if token is null
+                if (!token) {
+                    console.error("Token is null. Please log in again.");
+                    setError("Token is missing. Please log in again.");
                     setLoading(false);
-                }else {
-                    console.error("favorites is undefined or not an array!");
+                    return;
                 }
+
+                const response = await axios.get(`http://localhost:4000/user/${loggedInUser._id}/favorites`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                setProducts(response.data);
+                setLoading(false);
             } catch (error) {
                 console.error("Failed to fetch favorite products:", error);
                 setError("Failed to fetch favorite products. Please try again later.");
