@@ -12,9 +12,9 @@ import { useParams } from 'react-router-dom';
 import sneakersData from "../../data/sneakersData";
 import CosmeticsData from "../../data/CosmeticsData";
 import FoodsData from "../../data/FoodsData";
-import ClothingsData from "../../data/ClothingsData";
+import ClothingsData from "../../data/Clothing/ClothingsData";
 import DrinksData from "../../data/DrinksData";
-import electronicsData from "../../data/electronicsData";
+import ElectronicsData from "../../data/electronicsData";
 import TopbarContainer from "../topbar/TopbarContainer";
 import {useCart} from "../topbar/CartContext";
 
@@ -32,7 +32,7 @@ function getProductsForCategory(category) {
         case 'category5':
             return DrinksData;
         default:
-            return electronicsData;
+            return ElectronicsData;
     }
 }
 
@@ -144,6 +144,7 @@ const Productcontainer = () => {
             </div>
 
             <div className='container'>
+
                 <div className='searchcontainer'>
                     <div className="search-inner-container">
                         <input
@@ -153,9 +154,8 @@ const Productcontainer = () => {
                             aria-describedby="inputGroup-sizing-default"
                             placeholder="Search your favorite..."
                             onChange={handleSearchChange}
+                            style={{width:'520px',height:'40px',borderRadius:'15px',backgroundColor:'#F2F2F2'}}
                         />
-
-                        <label className='searchlabel'>label</label>
 
                         <select className='ItemSelect' onChange={handleSortChange}>
                             <option>Featured Items</option>
@@ -218,6 +218,10 @@ const Productcontainer = () => {
                         productsPerPage={productsPerPage}
                         addToCart={addToCart}
                     />
+                </div>
+
+                <div style={{width:'100%',height:'50px'}}>
+
                 </div>
 
                 <div className='footercontainer'>

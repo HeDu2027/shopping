@@ -134,7 +134,7 @@ const LogBySMS = () => {
                         <option value="+229">+229 (Benin)</option>
                         <option value="+230">+230 (Mauritius)</option>
                         <option value="+231">+231 (Liberia)</option>
-                        {/* Add all other country codes here */}
+                        {}
                     </select>
                     <input
                         type="text"
@@ -144,7 +144,7 @@ const LogBySMS = () => {
                         style={{width: "200px", height: "35px"}}
                     />
                     <button type="submit" style={{width:100,height:40}}>
-                        {/* Add the LuSend icon here */}
+                        {}
                         Send
                     </button>
                     <input
@@ -154,7 +154,7 @@ const LogBySMS = () => {
                         onChange={handleChange}
                         style={{width: "200px", height: "35px"}}
                     />
-                    <button onClick={handleConfirm} type="button" style={{width:100,height:40}}> {/* 更新button的类型和点击事件 */}
+                    <button onClick={handleConfirm} type="button" style={{width:100,height:40}}> {}
                         Confirm
                     </button>
                 </form>

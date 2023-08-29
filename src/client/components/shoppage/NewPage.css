@@ -1,3 +1,4 @@
+
 .newpage-container {
     background-color: #ECE5DD;
     align-items: center;
@@ -20,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #25d366; /* WhatsApp Header Farbe */
+    background-color: #25d366;
     color: white;
     padding: 10px;
     border-radius: 7px;

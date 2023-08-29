@@ -1,0 +1,27 @@
+.browser-history-container{
+
+}
+
+.item-container{
+    height: 80vh;
+    width: 100%;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    border: none;
+    padding: 10px;
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.item-list-container {
+    flex: 1; /* This will make it take up the remaining space */
+    flex-direction: row;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}

@@ -9,12 +9,12 @@ import applewatch_1 from "/Users/hedu/Downloads/app/shopping/src/client/data/ass
 import applewatch_2 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0003.jpg"
 
 import {getRandomRating} from './config/getRandomRating'
+const { v4: uuidv4 } = require('uuid');
 
 
 export const ProductData = [
     {
-        id: 1,
-        name: 'Apple MacBook Pro',
+        id: uuidv4(),        name: 'Apple MacBook Pro',
         price: 1999.99,
         stock: 20,
         mainImage: image,
@@ -24,8 +24,7 @@ export const ProductData = [
         ],
         rating: getRandomRating()
     },
-    { id: 2,
-        name: 'Samsung Galaxy S21',
+    { id: uuidv4(),        name: 'Samsung Galaxy S21',
         price: 799.99,
         stock: 30,
         mainImage: image,
@@ -36,8 +35,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 3,
-        name: 'Sony PlayStation 5',
+        id: uuidv4(),        name: 'Sony PlayStation 5',
         price: 499.99,
         stock: 15,
         mainImage: image,
@@ -48,8 +46,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 4,
-        name: 'Microsoft Xbox Series X',
+        id: uuidv4(),        name: 'Microsoft Xbox Series X',
         price: 499.99,
         stock: 10,
         mainImage: image,
@@ -60,8 +57,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 5,
-        name: 'Nintendo Switch',
+        id: uuidv4(),        name: 'Nintendo Switch',
         price: 299.99,
         stock: 25,
         mainImage: image,
@@ -72,8 +68,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 6,
-        name: 'Apple iPhone 13',
+        id: uuidv4(),        name: 'Apple iPhone 13',
         price: 999.99,
         stock: 30,
         mainImage: image,
@@ -84,8 +79,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 7,
-        name: 'Google Pixel 6',
+        id: uuidv4(),        name: 'Google Pixel 6',
         price: 599.99,
         stock: 20,
         mainImage: image,
@@ -96,8 +90,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 8,
-        name: 'Samsung Galaxy Tab S7',
+        id: uuidv4(),        name: 'Samsung Galaxy Tab S7',
         price: 649.99,
         stock: 15,
         mainImage: image,
@@ -108,8 +101,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 9,
-        name: 'Apple iPad Pro',
+        id: uuidv4(),        name: 'Apple iPad Pro',
         price: 799.99,
         stock: 20,
         mainImage: image,
@@ -120,8 +112,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 10,
-        name: 'Microsoft Surface Pro 7',
+        id: uuidv4(),        name: 'Microsoft Surface Pro 7',
         price: 749.99,
         stock: 15,
         mainImage: image,
@@ -132,8 +123,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 11,
-        name: 'Dell XPS 13',
+        id: uuidv4(),        name: 'Dell XPS 13',
         price: 999.99,
         stock: 10,
         mainImage: image,
@@ -144,8 +134,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 12,
-        name: 'HP Spectre x360',
+        id: uuidv4(),        name: 'HP Spectre x360',
         price: 1249.99,
         stock: 10,
         mainImage: image,
@@ -156,8 +145,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 13,
-        name: 'Apple Watch Series 7',
+        id: uuidv4(),        name: 'Apple Watch Series 7',
         price: 399.99,
         stock: 20,
         mainImage: applewatch_0,
@@ -168,8 +156,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 14,
-        name: 'Samsung Galaxy Watch 4',
+        id: uuidv4(),        name: 'Samsung Galaxy Watch 4',
         price: 249.99,
         stock: 30,
         mainImage: image,
@@ -180,8 +167,7 @@ export const ProductData = [
         rating: getRandomRating()
     },
     {
-        id: 15,
-        name: 'Fitbit Versa 3',
+        id: uuidv4(),        name: 'Fitbit Versa 3',
         price: 229.99,
         stock: 25,
         mainImage: image,
@@ -195,8 +181,7 @@ export const ProductData = [
 
 export const ClothingData = [
         {
-            id: 101,
-            name: 'Elegant Dress',
+            id: uuidv4(),            name: 'Elegant Dress',
             price: 59.99,
             stock: 50,
             mainImage: image1,
@@ -204,8 +189,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 102,
-            name: 'Casual Shirt',
+            id: uuidv4(),            name: 'Casual Shirt',
             price: 29.99,
             stock: 70,
             mainImage: image1,
@@ -213,8 +197,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 103,
-            name: 'Denim Jeans',
+            id: uuidv4(),            name: 'Denim Jeans',
             price: 49.99,
             stock: 60,
             mainImage: image1,
@@ -222,8 +205,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 104,
-            name: 'Leather Jacket',
+            id: uuidv4(),            name: 'Leather Jacket',
             price: 199.99,
             stock: 40,
             mainImage: image1,
@@ -231,8 +213,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 105,
-            name: 'Silk Scarf',
+            id: uuidv4(),            name: 'Silk Scarf',
             price: 19.99,
             stock: 80,
             mainImage: image1,
@@ -240,8 +221,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 106,
-            name: 'Woolen Sweater',
+            id: uuidv4(),            name: 'Woolen Sweater',
             price: 69.99,
             stock: 45,
             mainImage: image1,
@@ -249,8 +229,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 107,
-            name: 'Summer Hat',
+            id: uuidv4(),            name: 'Summer Hat',
             price: 24.99,
             stock: 55,
             mainImage: image1,
@@ -258,8 +237,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 108,
-            name: 'Running Shoes',
+            id: uuidv4(),            name: 'Running Shoes',
             price: 89.99,
             stock: 65,
             mainImage: image1,
@@ -267,8 +245,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 109,
-            name: 'Leather Belt',
+            id: uuidv4(),            name: 'Leather Belt',
             price: 34.99,
             stock: 75,
             mainImage: image1,
@@ -276,8 +253,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 110,
-            name: 'Sunglasses',
+            id: uuidv4(),            name: 'Sunglasses',
             price: 79.99,
             stock: 85,
             mainImage: image1,
@@ -285,8 +261,7 @@ export const ClothingData = [
             rating: getRandomRating()
         },
         {
-            id: 111,
-            name: 'Formal Suit',
+            id: uuidv4(),            name: 'Formal Suit',
             price: 249.99,
             stock: 30,
             mainImage: image1,

@@ -108,7 +108,7 @@ function CommentForm({ onSubmit }) {
                 <input type="file" multiple onChange={handleMediaChange} accept="image/*,video/*" />
             </div>
 
-            {/* Display the uploaded media */}
+            {}
             <div>
                 {media.map((file, index) => {
                     if (file.type.startsWith('image/')) {

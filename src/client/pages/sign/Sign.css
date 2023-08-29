@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: #ECE5DD; /* WhatsApp background color */
+    background-color: #ECE5DD;
 }
 
 .container {
@@ -34,7 +34,7 @@
     width: 170px;
     height: 40px;
     margin: 15px;
-    background-color: #25D366; /* WhatsApp green color */
+    background-color: #25D366;
     border: none;
     color: white;
     cursor: pointer;
@@ -43,7 +43,7 @@
 }
 
 .button:hover {
-    background-color: #128C57; /* Darker green for hover effect */
+    background-color: #128C57;
 }
 
 .icon {

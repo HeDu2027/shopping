@@ -8,16 +8,16 @@ const Showbar = ({data, addToCart}) => {
 
     const scrollContainer = useRef(null);
 
-    const scroll = (scrollOffset) => {
-        scrollContainer.current.scrollLeft += scrollOffset;
-    };
+    // const scroll = (scrollOffset) => {
+    //     scrollContainer.current.scrollLeft += scrollOffset;
+    // };
 
     return (
         <div className="showbar-wrapper">
-            <BsArrowLeftSquareFill
-                className="arrow-icon left-arrow"
-                onClick={() => scroll(-100)}
-            />
+            {}
+            {}
+            {}
+            {}
 
             <div ref={scrollContainer} className="showbar-container">
                 {data.map((showitem, index) => (
@@ -27,10 +27,10 @@ const Showbar = ({data, addToCart}) => {
                 ))}
             </div>
 
-            <BsArrowRightSquareFill
-                className="arrow-icon right-arrow"
-                onClick={() => scroll(100)}
-            />
+            {}
+            {}
+            {}
+            {}
         </div>
     );
 }

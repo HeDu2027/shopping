@@ -2,9 +2,7 @@
     position: fixed;
     top: 30px;
     right: 0;
-    width: 100px;
-    background-color: #25D366;
-    border: 1px solid #ddd;
+    background-color: transparent;
     z-index: 9999;
 }
 
@@ -20,7 +18,7 @@
     padding: 10px;
     font-size: 16px;
     color: #888;
-    background-color: #25D366; /* WhatsApp logo color */
+    background-color: #25D366;
 }
 
 .cart-backdrop {
@@ -30,23 +28,24 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9998; /* Ensure it's below the cart but above other elements */
+    z-index: 9998;
 }
 
 .cart-name{
-    width: 200px;
+    width: 150px;
 }
 
 .cart-product {
-    top: 30px;
-    left: 1200px;
+    margin-left: 1400px;
+    margin-top: 5px;
     display: flex;
     width: fit-content;
+    height: 80px;
     border-radius: 15px;
     background-color: #25D366 ;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px;
     border-bottom: 1px solid #e0e0e0;
 }
 
@@ -80,4 +79,18 @@
     color: #f00;
     cursor: pointer;
     margin-left: 10px;
+}
+
+.cart-summary{
+    margin-left: 1400px;
+    margin-top: 5px;
+    width: 350px;
+    height: 80px;
+    border-radius: 15px;
+    background-color: #25D366 ;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 12px;
 }

@@ -5,5 +5,5 @@
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Gap between ElectronicList and ProductList */
+    gap: 30px;
 }

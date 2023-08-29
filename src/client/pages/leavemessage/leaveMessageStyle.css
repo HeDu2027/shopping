@@ -1,7 +1,7 @@
-/* leaveMessageStyle.css */
+
 
 .leave-message-container {
-    background-color: #ECE5DD; /* WhatsApp background color */
+    background-color: #ECE5DD;
     padding: 20px;
     border-radius: 10px;
     max-width: 600px;
@@ -10,7 +10,7 @@
 }
 
 .leave-message-container h2 {
-    color: #075E54; /* WhatsApp green color */
+    color: #075E54;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -34,14 +34,14 @@
 
 .leave-message-container textarea {
     height: 150px;
-    resize: vertical; /* Allow vertical resizing */
+    resize: vertical;
 }
 
 .leave-message-container button {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #075E54; /* WhatsApp green color */
+    background-color: #075E54;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -51,5 +51,5 @@
 }
 
 .leave-message-container button:hover {
-    background-color: #054C43; /* Darker green for hover effect */
+    background-color: #054C43;
 }

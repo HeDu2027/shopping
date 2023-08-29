@@ -1,29 +1,31 @@
 .topbar-wrapper {
     position: relative;
-    width: 80%;
+    width: 100%;
+    height: 50px;
     margin: 0 auto;
-    font-family: 'Arial', sans-serif; /* Using Arial font, similar to WhatsApp */
+    font-family: 'Arial', sans-serif;
 }
 
 .topbar-wrapper > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: wheat; /* WhatsApp green color */
+    background-color: wheat;
     padding: 10px;
     color: white;
     width: 100%;
+    height: 90px;
     margin: 0 auto;
     border-radius: 6px;
 }
 
 .topbar-wrapper a {
-    color: white; /* Changing link color to white for better visibility */
-    text-decoration: none; /* Removing underline from links */
+    color: white;
+    text-decoration: none;
 }
 
 .topbar-wrapper a:hover {
-    text-decoration: underline; /* Adding underline on hover for better UX */
+    text-decoration: underline;
 }
 
 .topbar-wrapper select {
@@ -41,18 +43,18 @@
 .topbar-wrapper .show-cart, .topbar-wrapper .dropdown {
     position: absolute;
     top: 100%;
-    background-color: #128C7E; /* Slightly lighter green for dropdowns */
+    background-color: #128C7E;
     border: none;
     color: white;
     padding: 15px;
-    border-radius: 6px; /* Adding border-radius for smoother appearance */
+    border-radius: 6px;
 }
 
 .topbar-wrapper .show-cart {
     right: -20%;
     transform: translateX(-50%);
     width: 260px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .topbar-wrapper .dropdown {
@@ -60,7 +62,7 @@
     transform: translateX(-50%);
     width: 200px;
     height: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .topbar-wrapper .dropdown div {
@@ -68,12 +70,12 @@
 }
 
 .topbar-wrapper .dropdown div:hover {
-    background-color: #0B8AD9; /* Slightly darker green for hover effect */
+    background-color: #0B8AD9;
 }
 
 .topbar-wrapper .dropdown hr {
     margin: 5px 0;
-    border-color: white; /* Making the hr color white for visibility */
+    border-color: white;
 }
 
 .search-section {
@@ -86,7 +88,7 @@
     width: 200px;
     height: 40px;
     border-radius: 10px;
-    padding: 5px 10px 5px 35px; /* Left padding to make space for the search icon */
+    padding: 5px 10px 5px 35px;
     border: 1px solid #ccc;
 }
 
@@ -112,12 +114,17 @@
 }
 
 .cart-overlay {
-    z-index: 9999; /* This ensures it's on top of most other elements */
-    position: fixed; /* This ensures it's fixed and covers the entire viewport */
+    z-index: 9999;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login-section{
+    display: flex;
+    color: #888888;
 }
 

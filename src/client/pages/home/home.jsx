@@ -8,6 +8,7 @@ import {Data} from "../../data/datas";
 import TopbarContainer from "../../components/topbar/TopbarContainer";
 import {useCart} from "../../components/topbar/CartContext";
 import ServiceModule from "../../components/servicemodule/ServiceModule";
+import CategoryData from "../../components/Category/CategoryData";
 const Home = () => {
 
     const { cart, addToCart } = useCart();
@@ -23,7 +24,7 @@ const Home = () => {
             </div>
 
             <div className="discount-container">
-                <Category/>
+                <Category data={CategoryData}/>
             </div>
 
             <div className="list-container">

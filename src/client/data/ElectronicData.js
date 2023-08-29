@@ -1,5 +1,5 @@
 import image from "/Users/hedu/Downloads/app/shopping/src/client/components/lists/productlist/asset/airpods-max-select-pink-202011.png";
-import {getRandomRating} from './config/getRandomRating'
+import { getRandomRating } from './config/getRandomRating';
 
 
 const ElectronicProducts = [

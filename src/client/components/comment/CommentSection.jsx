@@ -2,8 +2,29 @@ import React, { useState } from 'react';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import './style.css';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { addComment, updateComments, setUserActions } from '../../redux/actions/reviewActions';
 function CommentSection() {
+
+    const dispatch = useDispatch();
+    const reviews = useSelector((state) => state.reviews.comments);
+    const userActionsState = useSelector((state) => state.reviews.userActions);
+
+    // ... rest of your code ...
+
+    const handleReply = (commentId, newReply) => {
+        const updatedComments = reviews.map(comment => {
+            if (comment.id === commentId) {
+                return {
+                    ...comment,
+                    replies: [...(comment.replies || []), newReply]
+                };
+            }
+            return comment;
+        });
+        dispatch(updateComments(updatedComments));
+    };
+
     const [comments, setComments] = useState([
         {
             id: 1,
@@ -62,18 +83,18 @@ function CommentSection() {
         }
     });
 
-    const handleReply = (commentId, newReply) => {
-        const updatedComments = comments.map(comment => {
-            if (comment.id === commentId) {
-                return {
-                    ...comment,
-                    replies: [...(comment.replies || []), newReply]
-                };
-            }
-            return comment;
-        });
-        setComments(updatedComments);
-    };
+    // const handleReply = (commentId, newReply) => {
+    //     const updatedComments = comments.map(comment => {
+    //         if (comment.id === commentId) {
+    //             return {
+    //                 ...comment,
+    //                 replies: [...(comment.replies || []), newReply]
+    //             };
+    //         }
+    //         return comment;
+    //     });
+    //     setComments(updatedComments);
+    // };
 
     const handleCommentSubmit = (newComment) => {
         setComments([...comments, newComment]);

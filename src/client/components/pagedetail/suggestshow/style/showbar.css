@@ -1,10 +1,10 @@
-/* Showbar Styles */
+
 .showbar-wrapper {
     display: flex;
     align-items: center;
     position: relative;
     width: 100%;
-    padding: 12px;
+    padding: 2px;
     overflow: hidden;
 }
 
@@ -29,14 +29,14 @@
     cursor: pointer;
     z-index: 2;
     margin: 0 10px;
-    color: #00aced; /* Ensure the arrow color is visible */
+    color: #00aced;
 }
 
 .showbar-container::-webkit-scrollbar {
     display: none;
 }
 
-/* Hide default scrollbar for IE, Edge, and Firefox */
+
 .showbar-container {
     -ms-overflow-style: none;
     scrollbar-width: none;

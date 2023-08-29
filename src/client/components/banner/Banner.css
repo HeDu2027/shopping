@@ -1,0 +1,9 @@
+.banner-container {
+    width:80%;
+    height:10%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius:5px;
+    margin-top:20px;
+}

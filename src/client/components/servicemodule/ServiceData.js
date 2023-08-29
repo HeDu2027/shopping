@@ -12,14 +12,14 @@ const ServiceData = [
     {
         name: 'discount2',
         image: p2,
-        title: "Online Payment Process",
+        title: "Online Payment Process Details",
         description: "Updates the deals data immediately"
     },
     {
         name: 'discount3',
         image: p3,
-        title: "Home Delivery Options",
-        description: "We have many logistic partners in global"
+        title: "Home Delivery Options or More choices",
+        description: "Lots of logistic partners in global"
     },
 ];
 

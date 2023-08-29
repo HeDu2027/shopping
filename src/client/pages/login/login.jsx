@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import {BiLogoGmail} from "react-icons/bi";
+import {UserContext} from "../personalspace/userContext/UserContext";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -10,6 +11,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
+    const { setUser } = useContext(UserContext);
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -20,15 +22,22 @@ const Login = () => {
             });
 
             if (response.data.message === 'Login successful') {
-                navigate('/home');
+                // Store the received JWT token in localStorage
+                const token = response.data.token;
+                localStorage.setItem('jwtToken', token);
+
+                setUser(response.data.user);  // Assuming the backend returns the user data in `response.data.user`
+                navigate('/personalspace');
             } else {
                 setMessage(response.data.message);
             }
+
         } catch (error) {
             console.error('Error logging in', error);
             setMessage('Error logging in');
         }
     };
+
 
 
     return (

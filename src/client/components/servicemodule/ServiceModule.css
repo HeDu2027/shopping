@@ -1,13 +1,14 @@
-/* Hauptcontainer */
+
 .service-module-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #ECE5DD; /* WhatsApp Hintergrundfarbe */
+    background-color: blanchedalmond;
+    border-radius: 15px;
 }
 
-/* Container für alle Rabatt-Elemente */
+
 .service-module-container {
     display: flex;
     gap: 20px;
@@ -15,26 +16,26 @@
     scroll-behavior: smooth;
     padding: 10px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schatten für einen erhöhten Effekt */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Einzelnes Rabatt-Element */
+
 .service-module-item {
-    background-color: #ffffff; /* Weißer Hintergrund für jedes Element */
+    background-color: #ffffff;
     border-radius: 15px;
     padding: 10px;
-    width: 420px;
+    width: 350px;
 }
 
-/* Bildstil */
+
 .service-module-image {
-    width: 400px;
+    width: 330px;
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* Titelstil */
+
 .service-module-title {
     font-size: 25px;
     font-weight: bold;
@@ -43,7 +44,7 @@
     margin-bottom: 20px;
 }
 
-/* Beschreibungsstil */
+
 .service-module-description {
     font-size: 18px;
     padding: 5px;

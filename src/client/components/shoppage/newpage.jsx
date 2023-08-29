@@ -4,7 +4,9 @@ import Searchbar from "../searchbar/searchbar";
 import './NewPage.css';
 import {FaPlusSquare} from "react-icons/fa";
 import {AiFillMinusCircle} from "react-icons/ai";
-import {BiSolidPlusCircle} from "react-icons/bi";  // Importieren Sie die CSS-Datei
+import {BiSolidPlusCircle} from "react-icons/bi";
+import Topbar from "../topbar/Topbar";
+import TopbarContainer from "../topbar/TopbarContainer";  // Importieren Sie die CSS-Datei
 
 const Newpage = () => {
 
@@ -30,8 +32,8 @@ const Newpage = () => {
     return (
         <div className="newpage-container">
             <div className="newpage-width">
-                <div className="newpage-searchbar">
-                    <Searchbar />
+                <div className="topbar-container">
+                    <TopbarContainer cart={cart}/>
                 </div>
 
                 <div style={{ height: '30px' }}></div>
@@ -67,7 +69,7 @@ const Newpage = () => {
                                     Stock: {product.stock}
                                 </div>
 
-                                {/*<div style={{ color: 'gray', width: '200px', marginTop: '10px',marginLeft:'25px' }}>Standard Shipping</div>*/}
+                                {}
 
                             </div>
 

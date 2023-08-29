@@ -29,6 +29,11 @@ const videoCallRoutes = require('./routes/videoCallRoutes');
 const screenShareRoutes = require('./routes/screenShareRoutes');
 const translationRoutes=require('./routes/transalation')
 const placeRoutes=require('./routes/place')
+const favoriteRoutes = require('./routes/favorites'); // Assuming the file name is favorites.js
+const updatefileRoutes=require('./routes/updateuser')
+
+
+const PersonalCenterRoutes=require('./routes/PersonalCenterRoutes')
 
 const app = express();
 const server = http.createServer(app);
@@ -38,6 +43,7 @@ const io = socketIo(server, {
         methods: ["GET", "POST"]
     }
 });
+
 
 const peerServer = ExpressPeerServer(server, {
     debug: true,
@@ -76,6 +82,10 @@ app.use('/video-call', videoCallRoutes);
 app.use('/screen-share', screenShareRoutes);
 app.use('/routes',translationRoutes);
 app.use('/api',placeRoutes)
+app.use(favoriteRoutes);
+app.use('/user',updatefileRoutes)
+
+app.use('/user',PersonalCenterRoutes)
 io.on('connection', (socket) => {
     console.log('a user connected');
 
@@ -114,48 +124,48 @@ io.on('connection', (socket) => {
 
     console.log('a user connected', socket.id);
 
-    socket.on('start-voice-call', (data) => {
-        console.log("Voice call started:", data);
+    // socket.on('start-voice-call', (data) => {
+    //     console.log("Voice call started:", data);
+    //
+    //     // Store the call data (for demonstration purposes, we're using an in-memory store)
+    //     const { callId, participants } = data;
+    //     if (callId && participants) {
+    //         activeCalls[callId] = {
+    //             participants,
+    //             startTime: new Date()
+    //         };
+    //
+    //         // Notify other participants about the call start
+    //         participants.forEach(participant => {
+    //             if (participant !== socket.id) {
+    //                 socket.to(participant).emit('voice-call-start-notification', { callId, initiator: socket.id });
+    //             }
+    //         });
+    //     } else {
+    //         console.error("Invalid call data received:", data);
+    //     }
+    // });
 
-        // Store the call data (for demonstration purposes, we're using an in-memory store)
-        const { callId, participants } = data;
-        if (callId && participants) {
-            activeCalls[callId] = {
-                participants,
-                startTime: new Date()
-            };
-
-            // Notify other participants about the call start
-            participants.forEach(participant => {
-                if (participant !== socket.id) {
-                    socket.to(participant).emit('voice-call-start-notification', { callId, initiator: socket.id });
-                }
-            });
-        } else {
-            console.error("Invalid call data received:", data);
-        }
-    });
-
-    socket.on('end-voice-call', (data) => {
-        console.log("Voice call ended:", data);
-
-        // Remove the call data from the store
-        const { callId } = data;
-        if (callId && activeCalls[callId]) {
-            const { participants } = activeCalls[callId];
-
-            // Notify other participants about the call end
-            participants.forEach(participant => {
-                if (participant !== socket.id) {
-                    socket.to(participant).emit('voice-call-end-notification', { callId, ender: socket.id });
-                }
-            });
-
-            delete activeCalls[callId];
-        } else {
-            console.error("Invalid call data or call not found:", data);
-        }
-    });
+    // socket.on('end-voice-call', (data) => {
+    //     console.log("Voice call ended:", data);
+    //
+    //     // Remove the call data from the store
+    //     const { callId } = data;
+    //     if (callId && activeCalls[callId]) {
+    //         const { participants } = activeCalls[callId];
+    //
+    //         // Notify other participants about the call end
+    //         participants.forEach(participant => {
+    //             if (participant !== socket.id) {
+    //                 socket.to(participant).emit('voice-call-end-notification', { callId, ender: socket.id });
+    //             }
+    //         });
+    //
+    //         delete activeCalls[callId];
+    //     } else {
+    //         console.error("Invalid call data or call not found:", data);
+    //     }
+    // });
 
     socket.on('share-screen', (roomId, streamId) => {
         console.log("Received share-screen event for room:", roomId, "with streamId:", streamId);
@@ -196,13 +206,18 @@ io.on('connection', (socket) => {
         }
     });
 
+    app.use((err, req, res, next) => {
+        console.error(err.stack);
+        res.status(500).send('Something broke!');
+    });
+
     app.use('/uploads', express.static('uploads'));
 
 
-    socket.on('receive-location', (location) => {
-        console.log("Received location:", location);
-        setReceivedLocation(location);
-    });
+    // socket.on('receive-location', (location) => {
+    //     console.log("Received location:", location);
+    //     setReceivedLocation(location);
+    // });
 
     socket.on('disconnect', () => {
             console.log('user disconnected');
@@ -211,5 +226,4 @@ io.on('connection', (socket) => {
 
 app.use('/screen-share', screenShareRoutes); // Use the new routes
     server.listen(4000, () => console.log('Server listening on port 4000'));
-
 

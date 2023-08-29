@@ -1,23 +1,21 @@
-.discount-wrapper {
+.category-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1500px;
-}
+    width: 100%;  }
 
-.discount-container {
+.category-container {
     display: flex;
-    gap: 20px;
+    width: 100%;      gap: 20px;
 }
 
-.discount-item {
+.category-item {
     flex: 0 0 auto;
-
 }
 
-.image {
-    width: 240px;
-    height: 240px;
-    object-fit: cover; /* This will ensure the image covers the entire space without distortion */
+.category-image {
+    width: 170px;
+    height: 270px;
+    object-fit: cover;
     border-radius: 10px;
 }

@@ -18,7 +18,7 @@
 }
 
 .chat-history p {
-    background-color: #E0FCD6; /* Light green for sent messages */
+    background-color: #E0FCD6;
     padding: 10px;
     border-radius: 7px;
     margin-bottom: 10px;
@@ -37,7 +37,7 @@ input[type="text"] {
 
 button {
     padding: 10px 20px;
-    background-color: transparent; /* WhatsApp green */
+    background-color: transparent;
     color: gray;
     border: none;
     border-radius: 20px;
@@ -45,17 +45,17 @@ button {
     transition: background-color 0.3s;
 }
 
-/*button:hover {*/
-/*    background-color: #F5F6F6; !* Darker green on hover *!*/
-/*}*/
+
+
+
 
 button[type="submit"] {
-    background-color: transparent; /* WhatsApp dark green for send button */
+    background-color: transparent;
 }
 
-/*button[type="submit"]:hover {*/
-/*    background-color: #054D44; !* Even darker green on hover for send button *!*/
-/*}*/
+
+
+
 
 form {
     display: flex;
@@ -69,9 +69,9 @@ form {
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 70px; /* Position the button list 20px above the input bar */
+    bottom: 70px;
     left: 8%;
-    transform: translateX(-50%); /* Center the list horizontally relative to the input bar */
+    transform: translateX(-50%);
     z-index: 10;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -127,6 +127,6 @@ form {
 }
 
 .emoji-picker-container .emoji-picker-react .emoji-categories {
-    max-height: calc(300px - 40px) !important; /* 40px is an estimated height for the category selector, adjust if needed */
+    max-height: calc(300px - 40px) !important;
     overflow-y: auto !important;
 }

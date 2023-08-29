@@ -1,6 +1,15 @@
+.product-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: blanchedalmond;
+    border-radius: 15px;
+}
+
 .productcontainer {
-    height: auto;
-    width: 300px;
+    height: 465px;
+    width: 255px;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -9,15 +18,16 @@
     align-items: center;
     padding: 20px;
     gap: 3px;
+    justify-content: space-between;
 }
 
 .imagecontainer {
-    height: 240px;
-    width: 240px;
+    height: 220px;
+    width: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
 }
 
 .image {
@@ -25,11 +35,25 @@
     max-width: 100%;
 }
 
+.productName-container{
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+}
+
 .productName {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    width: 100%;
+    -webkit-line-clamp: 2;
 }
+
 
 .productPrice {
     color: #25d366;
@@ -83,4 +107,20 @@
 
 .addToCartButton:hover {
     background-color: #128C7E;
+}
+
+.imagecontainer {
+    position: relative;
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #000; /* Standardfarbe */
+}
+
+.favorite-icon.favorited {
+    color: red; /* Farbe, wenn favorisiert */
 }

@@ -30,7 +30,7 @@ function SearchBar() {
                 <SiEbay size={40} color= ' #0064D2'/>
                 <button onClick={() => setShowPopup(!showPopup)} style={{ height: '40px', border: 'none', backgroundColor: 'transparent', fontSize:15 }}>Shop by category</button>
                 <div style={{ marginRight: '20px' }}>
-                    {/* Your component goes here */}
+                    {}
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
                     <div style={{display: 'flex', border: '1px solid gray', width: '100%', height: '42px'}}>
@@ -72,7 +72,7 @@ function SearchBar() {
                         </select>
                     </div>
                     <div style={{ marginRight: '20px' }}>
-                        {/* Your component goes here */}
+                        {}
                     </div>
                     <button style={{ height: '40px',width:'180px',backgroundColor:'#00aced',color:'white',fontSize:'17px',border:'none '}}>Search</button>
                 </div>

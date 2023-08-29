@@ -1,38 +1,170 @@
 import image from '/Users/hedu/Downloads/app/shopping/src/client/data/image/sneaker16.jpg'
 import {getRandomRating} from './config/getRandomRating'
+const { v4: uuidv4 } = require('uuid');
 
 
 const SneakerData = [
-    { name: 'Apple MacBook Pro', price: 1999.99, stock: 20, image: image, rating: getRandomRating() },
-    { name: 'Samsung Galaxy S21', price: 799.99, stock: 30, image: image, rating: getRandomRating() },
-    { name: 'Sony PlayStation 5', price: 499.99, stock: 15, image: image, rating: getRandomRating() },
-    { name: 'Microsoft Xbox Series X', price: 499.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'Nintendo Switch', price: 299.99, stock: 25, image: image, rating: getRandomRating() },
-    { name: 'Apple iPhone 13', price: 999.99, stock: 30, image: image, rating: getRandomRating() },
-    { name: 'Google Pixel 6', price: 599.99, stock: 20, image: image, rating: getRandomRating() },
-    { name: 'Samsung Galaxy Tab S7', price: 649.99, stock: 15, image: image, rating: getRandomRating() },
-    { name: 'Apple iPad Pro', price: 799.99, stock: 20, image: image, rating: getRandomRating() },
-    { name: 'Microsoft Surface Pro 7', price: 749.99, stock: 15, image: image, rating: getRandomRating() },
-    { name: 'Dell XPS 13', price: 999.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'HP Spectre x360', price: 1249.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'Apple Watch Series 7', price: 399.99, stock: 20, image: image, rating: getRandomRating() },
-    { name: 'Samsung Galaxy Watch 4', price: 249.99, stock: 30, image: image, rating: getRandomRating() },
-    { name: 'Fitbit Versa 3', price: 229.99, stock: 25, image: image, rating: getRandomRating() },
-    { name: 'Bose QuietComfort 35 II', price: 299.99, stock: 20, image: image, rating: getRandomRating() },
-    { name: 'Sony WH-1000XM4', price: 349.99, stock: 15, image: image, rating: getRandomRating() },
-    { name: 'Apple AirPods Pro', price: 249.99, stock: 30, image: image, rating: getRandomRating() },
-    { name: 'Samsung Galaxy Buds Pro', price: 199.99, stock: 20, image: image, rating: getRandomRating() },
-    { name: 'Jabra Elite 75t', price: 149.99, stock: 25, image: image, rating: getRandomRating() },
-    { name: 'Canon EOS R6', price: 2499.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'Nikon Z6 II', price: 1999.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'Sony Alpha a7 III', price: 1999.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'Fujifilm X-T4', price: 1699.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'GoPro HERO9 Black', price: 399.99, stock: 20, image: image, rating: getRandomRating() },
-    { name: 'DJI Mavic Air 2', price: 799.99, stock: 15, image: image, rating: getRandomRating() },
-    { name: 'Apple iMac (24-inch, 2021)', price: 1299.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'Dell Alienware Aurora R10', price: 1799.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'HP Envy 32 All-in-One', price: 1799.99, stock: 10, image: image, rating: getRandomRating() },
-    { name: 'Microsoft Surface Studio 2', price: 3499.99, stock: 5, image: image, rating: getRandomRating() },
+    {
+        id: uuidv4(),        name: 'Air Jordan 1 Retro',
+        price: 159.99,
+        stock: 20,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Adidas Yeezy Boost 350',
+        price: 219.99,
+        stock: 30,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Nike Air Max 97',
+        price: 179.99,
+        stock: 15,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Puma RS-X',
+        price: 110.99,
+        stock: 10,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'New Balance 990',
+        price: 174.99,
+        stock: 25,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Adidas Ultraboost',
+        price: 180.99,
+        stock: 30,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Nike Dunk Low',
+        price: 120.99,
+        stock: 20,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Asics Gel Lyte III',
+        price: 105.99,
+        stock: 15,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Reebok Classic Leather',
+        price: 75.99,
+        stock: 20,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Vans Old Skool',
+        price: 60.99,
+        stock: 15,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Converse Chuck Taylor',
+        price: 55.99,
+        stock: 10,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Nike Air Force 1',
+        price: 90.99,
+        stock: 10,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Adidas NMD R1',
+        price: 140.99,
+        stock: 20,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Under Armour HOVR',
+        price: 130.99,
+        stock: 30,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Saucony Shadow 5000',
+        price: 120.99,
+        stock: 25,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Fila Disruptor',
+        price: 65.99,
+        stock: 20,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Nike React Element',
+        price: 150.99,
+        stock: 15,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Adidas Superstar',
+        price: 80.99,
+        stock: 30,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Puma Suede Classic',
+        price: 70.99,
+        stock: 20,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    },
+    {
+        id: uuidv4(),        name: 'Nike SB Dunk',
+        price: 110.99,
+        stock: 25,
+        mainImage: image,
+        images: [image, image],
+        rating: getRandomRating()
+    }
 ];
+
 
 export default SneakerData;

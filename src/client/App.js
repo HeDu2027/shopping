@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import Signup from "./pages/signup";
-import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
+import React, {useState} from 'react';
+import Signup from "./pages/sign/signup";
+import S from "./pages/sign/s";
+
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Login from "./pages/login/login";
 import Home from "./pages/home/home";
 import ForgotPassword from "./pages/forgetpassword/forgetpassword";
@@ -32,6 +34,14 @@ import CommentSection from "./components/comment/CommentSection";
 import {TranslationProvider} from "./components/comment/TranslationContext";
 import TopbarContainer from "./components/topbar/TopbarContainer";
 import {CartProvider} from "./components/topbar/CartContext";
+import PersonalSpace from "./pages/personalspace/PersonalSpace";
+import {Provider} from "react-redux";
+import store from './redux/store';
+import Profile from "./pages/personalspace/Profile/Profile";
+import BrowserHistory from "./pages/personalspace/BwoserHistory/BrowserHistory";
+import FavoritePage from "./pages/personalspace/FavoritePage/FavoritePage";
+import PurchaseHistory from "./pages/personalspace/PurchaseHistory/PurchaseHistory";
+import {UserContext,UserProvider} from "./pages/personalspace/userContext/UserContext";
 
 function App() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -47,59 +57,68 @@ function App() {
     };
 
     console.log("addToCart in App:", addToCart);
-
+    const [loggedInUser, setLoggedInUser] = useState(null);
     return (
-        <TranslationProvider>
-            <CartProvider>
-            <div style={{ display: 'flex' }}>
-            {/*<Sidebar isSearchOpen={isSearchOpen} onSearchClick={handleSearchClick} />*/}
-            {/*{isSearchOpen && <Search />}*/}
-            <Router>
-                <Routes>
-                    <Route path="/sign" element={<Sign/>} />
-                    <Route path="/signup" element={<Signup/>} />
-                    <Route path="/login" element={<Login/>} />
-                    <Route path="/forgot-password" element={<ForgotPassword/>}/>
-                    <Route path="/home" element={<Home addToCart={addToCart} />}/>
-                    <Route path="/login-by-sms" element={<LogBySMS/>} />
-                    <Route path="/login-by-email" element={<LogByEmail/>}/>
-                    <Route path="/google" element={<Google/>}/>
-                    <Route path="/navbar" element={<Navbar/>}/>
-                    <Route path="/searchbar" element={<Searchbar/>}/>
-                    <Route path="/footer" element={<Footer/>}/>
-                    <Route path="/banner" element={<Banner/>}/>
+        <Provider store={store}>
+            <TranslationProvider>
+                <CartProvider>
+                    <UserProvider>
+                        <div style={{display: 'flex'}}>
+                            <Router>
+                                <Routes>
+                                    <Route path="/sign" element={<Sign/>}/>
+                                    <Route path="/signup" element={<Signup/>}/>
+                                    <Route path="/s" element={<S/>}/>
+                                    <Route path="/login" element={<Login/>}/>
+                                    <Route path="/forgot-password" element={<ForgotPassword/>}/>
+                                    <Route path="/home" element={<Home addToCart={addToCart}/>}/>
+                                    <Route path="/login-by-sms" element={<LogBySMS/>}/>
+                                    <Route path="/login-by-email" element={<LogByEmail/>}/>
+                                    <Route path="/google" element={<Google/>}/>
+                                    <Route path="/navbar" element={<Navbar/>}/>
+                                    <Route path="/searchbar" element={<Searchbar/>}/>
+                                    <Route path="/footer" element={<Footer/>}/>
+                                    <Route path="/banner" element={<Banner/>}/>
 
-                    <Route
-                        path="/productcontainer/:category"
-                        element={<Productcontainer key={window.location.pathname} />}
-                    />
+                                    <Route
+                                        path="/productcontainer/:category"
+                                        element={<Productcontainer key={window.location.pathname}/>}
+                                    />
 
-                    <Route path="/cart" element={<Cart/>}/>
-                    <Route path="/shoppingcart" element={<Shoppingcart/>}/>
-                    <Route path="/shoppage" element={<Shoppage/>}/>
-                    <Route path="/showbar" render={() => <Showbar addToCart={addToCart} />}/>
+                                    <Route path="/cart" element={<Cart/>}/>
+                                    <Route path="/shoppingcart" element={<Shoppingcart/>}/>
+                                    <Route path="/shoppage" element={<Shoppage/>}/>
+                                    <Route path="/showbar" render={() => <Showbar addToCart={addToCart}/>}/>
 
-                    <Route path="/newpage" element={<Newpage/>}/>
-                    <Route path="/checkpage" element={<Checkpage/>}/>
-                    <Route path="/pagedetail/:id" element={<ProductDetail/>} />
-                    <Route path="/leavemessage" element={<Leavemessage/>} />
+                                    <Route path="/newpage" element={<Newpage/>}/>
+                                    <Route path="/checkpage" element={<Checkpage/>}/>
+                                    <Route path="/pagedetail/:id" element={<ProductDetail/>}/>
+                                    <Route path="/leavemessage" element={<Leavemessage/>}/>
 
-                    <Route path="/instantmessage" element={<Instantmessage/>} />
-                    <Route path="/sharelocation" element={<ShareLocation/>} />
-                    <Route path="/sharefile" element={<ShareFile/>} />
-                    <Route path="/videocall" element={<VideoCall/>} />
-                    <Route path="/sharescreen" element={<ShareScreen/>} />
-                    <Route path="/voicecall" element={<Voicecall/>} />
-                    <Route path="/emoji" element={<Emoji/>} />
+                                    <Route path="/instantmessage" element={<Instantmessage/>}/>
+                                    <Route path="/sharelocation" element={<ShareLocation/>}/>
+                                    <Route path="/sharefile" element={<ShareFile/>}/>
+                                    <Route path="/videocall" element={<VideoCall/>}/>
+                                    <Route path="/sharescreen" element={<ShareScreen/>}/>
+                                    <Route path="/voicecall" element={<Voicecall/>}/>
+                                    <Route path="/emoji" element={<Emoji/>}/>
 
-                    <Route path="/commentsection" element={<CommentSection/>} />
+                                    <Route path="/commentsection" element={<CommentSection/>}/>
 
-                    <Route path="/parentcomponent" element={<TopbarContainer/>} />
-                </Routes>
-            </Router>
-            </div>
-            </CartProvider>
-        </TranslationProvider>
+                                    <Route path="/parentcomponent" element={<TopbarContainer/>}/>
+                                    <Route path="/personalspace" element={<PersonalSpace/>}/>
+                                    <Route path="/profile" element={<Profile/>}/>
+                                    <Route path="/browserhistory" element={<BrowserHistory/>}/>
+                                    <Route path="/favoritepage" element={<FavoritePage/>}/>
+                                    <Route path="/purchasehistory" element={<PurchaseHistory/>}/>
+
+                                </Routes>
+                            </Router>
+                        </div>
+                    </UserProvider>
+                </CartProvider>
+            </TranslationProvider>
+        </Provider>
     );
 }
 

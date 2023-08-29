@@ -3,12 +3,12 @@ const imageContext = require.context('/Users/hedu/Downloads/app/shopping/src/cli
 
 // Create the images array using the imageContext
 const images = imageContext.keys().map(imageContext);
+const { v4: uuidv4 } = require('uuid');
 
 
 export const Data = [
     {
-        id: 1,
-        name: 'Apple MacBook Pro',
+        id: uuidv4(),        name: 'Apple MacBook Pro',
         price: 1999.99,
         stock: 20,
         mainImage: images[0],
@@ -19,8 +19,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 2,
-        name: 'Samsung Galaxy S21',
+        id: uuidv4(),        name: 'Samsung Galaxy S21',
         price: 799.99,
         stock: 30,
         mainImage: images[3],
@@ -31,8 +30,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 3,
-        name: 'Sony PlayStation 5',
+        id: uuidv4(),        name: 'Sony PlayStation 5',
         price: 499.99,
         stock: 15,
         mainImage: images[6],
@@ -43,8 +41,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 4,
-        name: 'Microsoft Xbox Series X',
+        id: uuidv4(),        name: 'Microsoft Xbox Series X',
         price: 499.99,
         stock: 10,
         mainImage: images[9],
@@ -55,8 +52,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 5,
-        name: 'Nintendo Switch',
+        id: uuidv4(),        name: 'Nintendo Switch',
         price: 299.99,
         stock: 25,
         mainImage: images[12],
@@ -67,8 +63,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 6,
-        name: 'Apple iPhone 13',
+        id: uuidv4(),        name: 'Apple iPhone 13',
         price: 999.99,
         stock: 30,
         mainImage: images[15],
@@ -79,8 +74,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 7,
-        name: 'Google Pixel 6',
+        id: uuidv4(),        name: 'Google Pixel 6',
         price: 599.99,
         stock: 20,
         mainImage: images[18],
@@ -91,8 +85,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 8,
-        name: 'Samsung Galaxy Tab S7',
+        id: uuidv4(),        name: 'Samsung Galaxy Tab S7',
         price: 649.99,
         stock: 15,
         mainImage: images[21],
@@ -103,8 +96,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 9,
-        name: 'Apple iPad Pro',
+        id: uuidv4(),        name: 'Apple iPad Pro',
         price: 799.99,
         stock: 20,
         mainImage: images[24],
@@ -115,8 +107,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 10,
-        name: 'Microsoft Surface Pro 7',
+        id: uuidv4(),        name: 'Microsoft Surface Pro 7',
         price: 749.99,
         stock: 15,
         mainImage: images[27],
@@ -127,8 +118,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 11,
-        name: 'Dell XPS 13',
+        id: uuidv4(),        name: 'Dell XPS 13',
         price: 999.99,
         stock: 10,
         mainImage: images[30],
@@ -139,8 +129,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 12,
-        name: 'HP Spectre x360',
+        id: uuidv4(),        name: 'HP Spectre x360',
         price: 1249.99,
         stock: 10,
         mainImage: images[33],
@@ -151,8 +140,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 13,
-        name: 'Apple Watch Series 7',
+        id: uuidv4(),        name: 'Apple Watch Series 7',
         price: 399.99,
         stock: 20,
         mainImage: images[36],
@@ -163,8 +151,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 14,
-        name: 'Samsung Galaxy Watch 4',
+        id: uuidv4(),        name: 'Samsung Galaxy Watch 4',
         price: 249.99,
         stock: 30,
         mainImage: images[39],
@@ -175,8 +162,7 @@ export const Data = [
         rating: getRandomRating()
     },
     {
-        id: 15,
-        name: 'Fitbit Versa 3',
+        id: uuidv4(),        name: 'Fitbit Versa 3',
         price: 229.99,
         stock: 25,
         mainImage: images[42],

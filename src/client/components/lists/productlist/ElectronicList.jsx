@@ -13,12 +13,12 @@ const ElectronicList = () => {
     return (
         <div className="showbar-wrapper">
 
-            {/*<div className="product-list-header">*/}
-            {/*    <h1>Score these trending kicks</h1>*/}
-            {/*    <a href="/allproducts" className="see-all-link">*/}
-            {/*        <p>See all <BsArrowRight /></p>*/}
-            {/*    </a>*/}
-            {/*</div>*/}
+            {}
+            {}
+            {}
+            {}
+            {}
+            {}
 
             <div ref={scrollContainer} className="showbar-container">
                 {ElectronicProducts.map((showitem, index) => (

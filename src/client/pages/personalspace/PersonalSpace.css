@@ -1,0 +1,75 @@
+.personal-space-category .category-item {
+    background-color: wheat;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;      height: 220px;  }
+
+.personal-space-category .category-image {
+    width: 200px;
+    height: 200px;
+}
+
+
+.personal-space-container {
+    gap: 10px;
+    margin-top: 50px;
+}
+
+/* Assuming this is the CSS for Topbar */
+.topbar-classname {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* other styles */
+}
+
+.card-list-wrapper{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height:auto;
+    width:100%;
+    border-radius:15px;
+    border:none;
+    background-color:whitesmoke;
+    margin-top:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:20px;
+    gap:15px;
+    margin:10px
+}
+
+.card-wrapper{
+    height:250px;
+    width:200px;
+    border:none;
+    border-radius:15px;
+    background-color:blanchedalmond;
+    padding:10px
+}
+
+.image-wrapper{
+    width:180px;
+    height:180px;
+    border-radius:10px;
+    background-color:gray
+}
+
+.name-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px; /* Reduced padding for better centering */
+    background-color: white;
+    gap: 10px; /* Space between the icon and the name */
+    margin-top: 10px;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+

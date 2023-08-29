@@ -10,3 +10,30 @@
 .listLayout {
     grid-template-columns: repeat(1, 1fr);
 }
+
+
+.listLayout .product-wrapper {
+    flex-direction: row;
+    width: 1150px;
+    padding: 3px;
+}
+
+.listLayout .productcontainer {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 20px;
+}
+
+.listLayout .imagecontainer {
+    height: 150px;
+    width: 150px;
+    margin-right: 20px;
+}
+
+.listLayout .productName-container {
+    flex: 1;
+    min-height: auto;
+    align-items: flex-start;
+}

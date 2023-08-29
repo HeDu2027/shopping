@@ -1,0 +1,44 @@
+.profile-wrapper{
+    height: auto;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-container{
+    width: 100%;
+    border-radius: 15px;
+    height: auto;
+    padding: 5px;
+    background-color: blanchedalmond;
+    margin-bottom: 10px;
+}
+
+.title-wrapper{
+    width: 100%;
+    border-radius: 15px;
+    height: auto;
+    padding: 5px;
+    background-color: white;
+}
+
+.personal-infos-container{
+    width: 100%;
+    border-radius: 15px;
+    height: auto;
+    padding: 5px;
+    background-color: blanchedalmond;
+    margin-bottom: 10px;
+}
+
+.personal-infos-wrapper{
+    width: 100%;
+    border-radius: 15px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+}

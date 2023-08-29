@@ -1,83 +1,83 @@
-/* whatsappStyle.css */
+ 
 
 body {
     font-family: 'Arial', sans-serif;
     background-color: #ECE5DD;
     color: #4A4A4A;
-    height: 100vh; /* Set height to 100vh */
+    height: 100vh;  
     display: flex;
     justify-content: center;
-    //align-items: center; /* Center content vertically */
-    margin: 0; /* Remove default margin */
-    overflow: hidden; /* Prevent overflow */
+    //align-items: center;  
+    margin: 0;  
+    overflow: hidden;  
     overflow-y: auto;
 }
 
 .app {
     max-width: 600px;
-    height: auto; /* Set height to 100vh */
+    height: auto;      
     min-height: 100vh;
     padding-bottom: 60px;
-    margin: 0 auto; /* Center content horizontally */
+    margin: 0 auto;  
     border-radius: 10px;
-    overflow: hidden; /* Hide overflow */
+    overflow: hidden;  
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Stack children vertically */
+    flex-direction: column;  
 }
 
 .comment-section {
     background-color: #DCF8C6;
     padding: 20px;
-    padding-bottom: 80px; /* Space for the comment-form */
-    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    padding-bottom: 80px;  
+    overflow-y: auto;  
 }
 
-/* whatsappStyle.css */
+ 
 
-/* ... existing styles ... */
+ 
 
 .comment-form {
-    position: fixed; /* Fixed positioning */
-    bottom: 0; /* At the bottom of the viewport */
-    width: 100%; /* Full width */
-    max-width: 1280px; /* Max width */
+    position: fixed;  
+    bottom: 0;  
+    width: 100%;  
+    max-width: 1280px;  
     background-color: #F0F0F0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000; /* High z-index to ensure it's in front of other content */
+    z-index: 1000;  
 }
 
 .comment-form input[type="text"],
 .comment-form textarea {
-    width: 80%; /* Same width */
-    height: 40px; /* Same height */
+    width: 80%;  
+    height: 40px;  
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
-    resize: none; /* Prevent resizing of textarea */
+    resize: none;  
 }
 
 .comment-form textarea {
-    height: 80px; /* Adjusted height for textarea */
+    height: 80px;  
 }
 
 .comment-form .rating-container {
     display: flex;
-    align-items: center; /* Align items vertically */
-    gap: 5px; /* Spacing between label and stars */
+    align-items: center;  
+    gap: 5px;  
 }
 
 .comment-form .rating-container label {
-    margin-right: 10px; /* Spacing between label and stars */
+    margin-right: 10px;  
 }
 
 .comment-form .rating-container .stars {
     display: flex;
-    gap: 5px; /* Spacing between stars */
+    gap: 5px;  
 }
 
 .comment-form button {
@@ -88,14 +88,14 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 10px 0; /* Adjusted margin for better spacing */
+    margin: 10px 0;  
 }
 
 .comment-form button:hover {
     background-color: #054C43;
 }
 
-/* ... rest of your styles ... */
+ 
 
 
 .comment-list .comment {
@@ -123,7 +123,7 @@ body {
 
 .comment-list .comment .stars {
     font-size: 12px;
-    color: #FFD700; /* Gold color for stars */
+    color: #FFD700;  
     margin-bottom: 5px;
 }
 
@@ -143,15 +143,15 @@ body {
     transform: translateY(-50%);
 }
 
-/* style.css */
+ 
 
-/* ... other styles ... */
+ 
 
 .uploaded-images img {
     width: 200px;
     height: 200px;
-    object-fit: cover; /* This will ensure the image covers the entire space without distortion */
-    margin: 5px; /* Optional: to give some space between images */
+    object-fit: cover;  
+    margin: 5px;  
 }
 
 .comment-content video {
@@ -202,15 +202,15 @@ body {
     border-radius: 4px;
 }
 
-/* whatsappStyle.css */
+ 
 
-/* ... existing styles ... */
+ 
 
 .pagination {
-    position: absolute; /* Absolute positioning */
-    bottom: 10px; /* 10px from the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
+    position: absolute;  
+    bottom: 10px;  
+    left: 50%;  
+    transform: translateX(-50%);  
 }
 
 .page-item {
@@ -231,19 +231,19 @@ body {
     color: white;
 }
 
-/* ... rest of your styles ... */
+ 
 
 
 .reply-container {
-    width: 1000px; /* 80% of comment-list width */
-    max-height: 1000px; /* Default height */
-    overflow-y: auto; /* Scroll if content is too long */
-    transition: max-height 0.3s; /* Smooth transition for height changes */
-    margin: 10px 0; /* Optional: to give some space around the reply container */
+    width: 1000px;  
+    max-height: 1000px;  
+    overflow-y: auto;  
+    transition: max-height 0.3s;  
+    margin: 10px 0;  
 }
 
 .comment-list:hover .reply-container {
-    max-height: 200px; /* Adjust this value based on your preference */
+    max-height: 200px;  
 }
 
 

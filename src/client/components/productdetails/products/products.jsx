@@ -32,10 +32,11 @@ const Products = ({ layout, currentPage, sortOption, searchTerm, ratingFilter, p
     return (
         <div className={`productsContainer ${layout === 'grid' ? 'gridLayout' : 'listLayout'}`}>
             {displayedProducts.map((product, index) => (
-                <Product key={index} product={product} addToCart={addToCart}/>
+                <Product key={index} product={product} addToCart={addToCart} layout={layout}/>
             ))}
         </div>
     );
+
 };
 
 export default Products;

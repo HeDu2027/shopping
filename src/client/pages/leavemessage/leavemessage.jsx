@@ -64,7 +64,7 @@ const LeaveMessage = () => {
                 <option value="Bug Report">Bug Report</option>
                 <option value="Order Query">Order Query</option>
                 <option value="Subscription Inquiry">Subscription Inquiry</option>
-                {/* Add more options as needed */}
+                {}
             </select>
 
             <textarea

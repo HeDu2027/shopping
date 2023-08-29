@@ -118,9 +118,9 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
                             : 'N/A'}
                     </div>
 
-                    {/*<div className="comment-location">*/}
-                    {/*    written in {commentObj.location} */}
-                    {/*</div>*/}
+                    {}
+                    {}
+                    {}
 
 
 
@@ -143,19 +143,19 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
 
 
                     <div className="comment-content">
-                        {/*<div className="stars">*/}
-                        {/*    {[...Array(5)].map((_, index) => {*/}
-                        {/*        const StarIcon = index < commentObj.rating ? AiFillStar : AiOutlineStar;*/}
-                        {/*        return (*/}
-                        {/*            <StarIcon*/}
-                        {/*                key={index}*/}
-                        {/*                size={20}*/}
-                        {/*                color={index < commentObj.rating ? '#FFD700' : '#A9A9A9'}*/}
-                        {/*            />*/}
-                        {/*        );*/}
-                        {/*    })}*/}
-                        {/*</div>*/}
-                        {/*<p>{commentObj.comment}</p>*/}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
                         {commentObj.images && commentObj.images.map((image, index) => (
                             <img key={index} src={URL.createObjectURL(image)} alt="Uploaded" style={{ width: '200px', height: '200px' }} />
                         ))}
@@ -180,12 +180,12 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
                             ))}
                         </div>
 
-                        {/*<ReplyForm onReply={(reply) => handleReplySubmit(commentObj.id, reply)} />*/}
-                        {/*<div className="replies">*/}
-                        {/*    {Array.isArray(commentObj.replies) && commentObj.replies.map((reply, index) => (*/}
-                        {/*        <p key={index}>{reply}</p>*/}
-                        {/*    ))}*/}
-                        {/*</div>*/}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
+                        {}
                     </div>
                 </div>
             ))}

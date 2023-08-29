@@ -4,20 +4,53 @@ const bcrypt = require('bcryptjs');
 const twilio = require('twilio');
 const User = require('../models/user');
 const  SmsCode  = require('../models/SmsCode');
-
+const jwt = require('jsonwebtoken');
 const accountSid = 'AC44e133c4865f10f993b4e83f2ea52766';
 const authToken = 'a3c2f0b08dcf972106ebd2a31c002337';
 const client = new twilio(accountSid, authToken);
 
-
-// ... (您的身份验证代码，例如 /api/signup, /api/login, /api/send-sms, /api/login-by-sms, /api/verify-sms-code)
 router.post('/api/signup', async (req, res) => {
-    const { username, password } = req.body;
+    const {
+        email,
+        username,
+        password,
+        firstName,
+        lastName,
+        dateOfBirth,
+        gender,
+        profileImage,
+        address,
+        alternateEmail,
+        alternatePhone,
+        language,
+        currency,
+        theme,
+        notifications,
+        socialAccounts,
+        securityQuestions
+    } = req.body;
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
+        email,
         username,
         password: hashedPassword,
+        //password,
+        firstName,
+        lastName,
+        dateOfBirth,
+        gender,
+        profileImage,
+        address,
+        alternateEmail,
+        alternatePhone,
+        language,
+        currency,
+        theme,
+        notifications,
+        socialAccounts,
+        securityQuestions
     });
 
 
@@ -42,7 +75,7 @@ router.post('/api/login', async (req, res) => {
 
     if (!user) {
         console.log(`User ${username} not found in database.`);
-        return res.status(400).json({ message: 'Invalid username' }); // 返回具体的错误信息
+        return res.status(400).json({ message: 'Invalid username' });
     }
 
     console.log(`User found in database: username = ${user.username}, password = ${user.password}`);
@@ -50,12 +83,34 @@ router.post('/api/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
         console.log('Password does not match the one in the database.');
-        return res.status(400).json({ message: 'Invalid password' }); // 返回具体的错误信息
+        return res.status(400).json({ message: 'Invalid password' });
     }
 
     console.log(`Login successful for user: ${username}`);
-    res.json({ message: 'Login successful' });
+
+    // Generate JWT
+    const payload = {
+        userId: user._id,
+        username: user.username
+        // ... any other data you want to include
+    };
+
+    const secretKey = process.env.JWT_SECRET_KEY; // Assuming you're using dotenv
+    const token = jwt.sign(payload, secretKey, { expiresIn: '10h' });
+
+    // Return the user's ID, JWT, and other necessary data upon successful login
+    res.json({
+        message: 'Login successful',
+        token: token,
+        user: {
+            _id: user._id,
+            username: user.username
+            // You can add other user data you want to return here
+        }
+    });
 });
+
+
 
 router.post('/api/send-sms', (req, res) => {
     const phone = req.body.phone;
