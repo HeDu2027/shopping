@@ -1,6 +1,6 @@
-import p1 from '/Users/hedu/Downloads/app/shopping/src/client/components/servicemodule/asset/01.jpg';
-import p2 from '/Users/hedu/Downloads/app/shopping/src/client/components/servicemodule/asset/02.jpg';
-import p3 from '/Users/hedu/Downloads/app/shopping/src/client/components/servicemodule/asset/03.jpg';
+import p1 from './asset/01.jpg';
+import p2 from './asset/02.jpg';
+import p3 from './asset/03.jpg';
 
 const ServiceData = [
     {

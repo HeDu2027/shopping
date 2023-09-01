@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import myImage from '/Users/hedu/Downloads/app/shopping/src/client/components/navbar/asset/截屏2023-08-02 12.52.20.png';
-
+import myImage from './asset/截屏2023-08-02 12.52.20.png'
 function Navbar() {
     const [activeLink, setActiveLink] = useState(null);
     const [isHoveringPopup, setIsHoveringPopup] = useState(false);

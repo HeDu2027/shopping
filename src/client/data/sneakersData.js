@@ -1,4 +1,4 @@
-import image from '/Users/hedu/Downloads/app/shopping/src/client/data/image/sneaker16.jpg'
+import image from '../data/image/sneaker16.jpg'
 import {getRandomRating} from './config/getRandomRating'
 const { v4: uuidv4 } = require('uuid');
 

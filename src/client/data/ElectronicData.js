@@ -1,4 +1,4 @@
-import image from "/Users/hedu/Downloads/app/shopping/src/client/components/lists/productlist/asset/airpods-max-select-pink-202011.png";
+import image from './image/airpodmax.png'
 import { getRandomRating } from './config/getRandomRating';
 
 

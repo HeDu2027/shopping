@@ -1,4 +1,4 @@
-import image from '/Users/hedu/Downloads/app/shopping/src/client/data/image/airpodmax.png'
+import image from './image/airpodmax.png'
 import { getRandomRating } from './config/getRandomRating';
 const { v4: uuidv4 } = require('uuid');
 

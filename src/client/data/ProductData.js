@@ -1,12 +1,10 @@
-import image from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0007.jpg";
-import image1 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0006.jpg"
-import image2 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0008.jpg"
-import image3 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0009.jpg"
-import g22_1 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0004.jpg"
-import g22_2 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0005.jpg"
-import applewatch_0 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0001.jpg"
-import applewatch_1 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0002.jpg"
-import applewatch_2 from "/Users/hedu/Downloads/app/shopping/src/client/data/assets/image0003.jpg"
+import image from "./assets/image0007.jpg";
+import image1 from "./assets/image0006.jpg"
+import g22_1 from "./assets/image0004.jpg"
+import g22_2 from "./assets/image0005.jpg"
+import applewatch_0 from "./assets/image0001.jpg"
+import applewatch_1 from "./assets/image0002.jpg"
+import applewatch_2 from "./assets/image0003.jpg"
 
 import {getRandomRating} from './config/getRandomRating'
 const { v4: uuidv4 } = require('uuid');

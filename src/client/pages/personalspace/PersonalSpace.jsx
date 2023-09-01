@@ -4,7 +4,7 @@ import Topbar from "../../components/topbar/Topbar";
 import './PersonalSpace.css'
 
 import { v4 as uuidv4 } from 'uuid';
-import img from '/Users/hedu/Downloads/app/shopping/src/client/data/image/apple.jpg'
+import img from '../../data/image/apple.jpg'
 import {MdFavorite} from "react-icons/md";
 import {ImProfile} from "react-icons/im";
 import {GrHistory} from "react-icons/gr";

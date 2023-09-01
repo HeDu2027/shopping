@@ -1,6 +1,6 @@
 import { getRandomRating } from '../config/getRandomRating';
 
-const imageContext = require.context('/Users/hedu/Downloads/app/shopping/src/client/data/Clothing/image', false, /\.(jpg|jpe?g|webp)$/);
+const imageContext = require.context('./image', false, /\.(jpg|jpe?g|webp)$/);
 
 // Create the images array using the imageContext
 const images = imageContext.keys().map(imageContext);

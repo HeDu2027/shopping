@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import styled from 'styled-components';
 
-import Image from '/Users/hedu/Downloads/app/shopping/src/client/components/banner/asset/banner.png'
+import Image from './asset/banner.png'
 
 const StyledCarousel = styled(Carousel)`
     .control-arrow {

@@ -13,6 +13,7 @@ const googleMapsClient = require('@google/maps').createClient({
     Promise: Promise
 });
 
+
 // Routes
 const authRoutes = require('./routes/auth');
 const emailVerifyRoutes = require('./routes/emailVerify');

@@ -1,10 +1,10 @@
 import image from "../lists/productlist/asset/Samsung-Galaxy-S22-Ultra-5G-256-GB-phantom-white.jpg";
-import p1 from "/Users/hedu/Downloads/app/shopping/src/client/components/Category/asset/1.png"
-import p2 from "/Users/hedu/Downloads/app/shopping/src/client/components/Category/asset/2.png"
-import p3 from "/Users/hedu/Downloads/app/shopping/src/client/components/Category/asset/3.png"
-import p4 from "/Users/hedu/Downloads/app/shopping/src/client/components/Category/asset/4.png"
-import p5 from "/Users/hedu/Downloads/app/shopping/src/client/components/Category/asset/5.png"
-import p6 from "/Users/hedu/Downloads/app/shopping/src/client/components/Category/asset/6.png"
+import p1 from "./asset/1.png"
+import p2 from "./asset/2.png"
+import p3 from "./asset/3.png"
+import p4 from "./asset/4.png"
+import p5 from "./asset/5.png"
+import p6 from "./asset/6.png"
 
 const CategoryData =[
     { name: 'category1',image: p1 ,route: '/products/category1'},

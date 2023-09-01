@@ -1,4 +1,4 @@
-import image from '/Users/hedu/Downloads/app/shopping/src/client/components/productdetails/asset/airpods max.png'
+import image from '../asset/airpods max.png'
 const getRandomRating = () => {
     const ratings = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
     return ratings[Math.floor(Math.random() * ratings.length)];

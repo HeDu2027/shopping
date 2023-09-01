@@ -186,7 +186,7 @@ const InstantMessage = () => {
     }, [transcription]);
 
     return (
-        <div className={`instant-message-container ${theme}`}>
+        <div  className={`instant-message-container ${theme}`}>
             <input type="file" id="fileInput" style={{ display: 'none' }} onChange={handleFileChange} />
             <input
                 type="text"

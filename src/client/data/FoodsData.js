@@ -1,4 +1,4 @@
-import image from '/Users/hedu/Downloads/app/shopping/src/client/data/image/apple.jpg'
+import image from './image/apple.jpg'
 import { getRandomRating } from './config/getRandomRating';
 const { v4: uuidv4 } = require('uuid');
 
