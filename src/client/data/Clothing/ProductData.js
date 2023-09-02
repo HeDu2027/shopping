@@ -1,12 +1,12 @@
-import image from "./assets/image0007.jpg";
-import image1 from "./assets/image0006.jpg"
-import g22_1 from "./assets/image0004.jpg"
-import g22_2 from "./assets/image0005.jpg"
-import applewatch_0 from "./assets/image0001.jpg"
-import applewatch_1 from "./assets/image0002.jpg"
-import applewatch_2 from "./assets/image0003.jpg"
+import image from "../assets/image0007.jpg";
+import image1 from "../assets/image0006.jpg"
+import g22_1 from "../assets/image0004.jpg"
+import g22_2 from "../assets/image0005.jpg"
+import applewatch_0 from "../assets/image0001.jpg"
+import applewatch_1 from "../assets/image0002.jpg"
+import applewatch_2 from "../assets/image0003.jpg"
 
-import {getRandomRating} from './config/getRandomRating'
+import {getRandomRating} from '../config/getRandomRating'
 const { v4: uuidv4 } = require('uuid');
 
 

@@ -8,6 +8,18 @@ const FavoriteSchema = new mongoose.Schema({
     productId: {
         type: String
     },
+    productName: {
+        type: String,
+        required: true
+    },
+    productPrice: {
+        type: Number,
+        required: true
+    },
+    productStock: {
+        type: Number,
+        required: true
+    },
     favoritedAt: Date
 });
 module.exports = mongoose.model('Favorite', FavoriteSchema);

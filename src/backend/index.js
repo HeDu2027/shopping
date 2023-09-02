@@ -32,7 +32,7 @@ const translationRoutes=require('./routes/transalation')
 const placeRoutes=require('./routes/place')
 const favoriteRoutes = require('./routes/favorites'); // Assuming the file name is favorites.js
 const updatefileRoutes=require('./routes/updateuser')
-
+const userRoutes = require('./routes/userRoutes');
 
 const PersonalCenterRoutes=require('./routes/PersonalCenterRoutes')
 
@@ -87,8 +87,10 @@ app.use(favoriteRoutes);
 app.use('/user',updatefileRoutes)
 
 app.use('/user',PersonalCenterRoutes)
+
+app.use('/api', userRoutes);
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    //console.log('a user connected');
 
     socket.on('chat message', async (messageObj) => {
         console.log(`Received message from socket ${socket.id}:`, messageObj.content);
@@ -123,7 +125,7 @@ io.on('connection', (socket) => {
 
     // Assuming you have a database setup or an in-memory store
 
-    console.log('a user connected', socket.id);
+    //console.log('a user connected', socket.id);
 
     // socket.on('start-voice-call', (data) => {
     //     console.log("Voice call started:", data);

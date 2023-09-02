@@ -9,7 +9,7 @@ import {BiMinus, BiPlus, BiSolidBadgeDollar} from "react-icons/bi";
 import {HiShoppingBag} from "react-icons/hi";
 import {IoMdInformationCircle} from "react-icons/io";
 import Footer from "../footer/footer";
-import { ProductData, ClothingData, getRandomRating } from '../../data/ProductData';
+import { ProductData, ClothingData, getRandomRating } from '../../data/Clothing/ProductData';
 import Showbar from "./suggestshow/showbar"; // Replace with the actual path
 import {Data} from '../../data/datas'
 import Topbar from "../topbar/Topbar";

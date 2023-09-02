@@ -1,78 +1,39 @@
 import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import Topbar from "../../../components/topbar/Topbar";
 import './FavoritePage.css'
-import axios from "axios";
 import { UserContext } from "../userContext/UserContext";
 
 const FavoritePage = () => {
     const { user: loggedInUser } = useContext(UserContext);
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null);  // State to handle errors
 
     useEffect(() => {
-        if (!loggedInUser) {
-            console.error("User is not logged in.");
-            return;
-        }
-
-        let favoritesArray = [];
-
-        if (loggedInUser.favorites) {
-            if (Array.isArray(loggedInUser.favorites)) {
-                // Extracting product IDs from the array of favorite objects.
-                favoritesArray = loggedInUser.favorites.map(fav => fav.productId);
-            } else {
-                console.error("Unexpected type for favorites");
-                return;  // exit useEffect
-            }
-        } else {
-            console.error("favorites is undefined or not an array!");
-            return;
-        }
-
-
-        if (!favoritesArray.length) {
-            console.warn("favorites array is empty!");
-            return;
-        }
-
-        console.log("loggedInUser:", loggedInUser);
-
         const fetchFavorites = async () => {
             try {
-                // Assuming you're storing the token in local storage
-                const token = localStorage.getItem('token');
-
-                // Check if token is null
-                if (!token) {
-                    console.error("Token is null. Please log in again.");
-                    setError("Token is missing. Please log in again.");
-                    setLoading(false);
-                    return;
-                }
-
+                const token = localStorage.getItem('jwtToken');
                 const response = await axios.get(`http://localhost:4000/user/${loggedInUser._id}/favorites`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
+                console.log("Response status:", response.status);
+                console.log("Response headers:", response.headers);
+
+                console.log("Fetched favorite products:", response.data);
+                console.log("Products state after fetching:", products);
 
                 setProducts(response.data);
-                setLoading(false);
             } catch (error) {
                 console.error("Failed to fetch favorite products:", error);
-                setError("Failed to fetch favorite products. Please try again later.");
-                setLoading(false);
             }
         };
 
         fetchFavorites();
-    }, [loggedInUser]);
+    }, [loggedInUser._id]);
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
-
+    console.log("Current products state:", products); // <-- Add this line
     return (
         <div className='favorite-page-container'>
             <Topbar />
@@ -84,7 +45,9 @@ const FavoritePage = () => {
                         </div>
                     </div>
                     <div className='item-list-container'>
-                        {products.map(product => (
+                        {error && <p className="error-message">{error}</p>}  {/* Display error message if there's an error */}
+                        {Array.isArray(products) && products.length === 0 && <p>You have no favorite products.</p>}  {/* Display message if no favorite products */}
+                        {Array.isArray(products) && products.map(product => (
                             <Product key={product._id} data={product} />
                         ))}
                     </div>
@@ -95,6 +58,7 @@ const FavoritePage = () => {
 }
 
 const Product = ({ data }) => {
+    console.log("Rendering product:", data.name); // <-- Add this line
     return (
         <div className='card-wrapper'>
             <img className='image-wrapper' src={data.mainImage} alt={data.name} />

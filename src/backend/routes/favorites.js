@@ -9,6 +9,12 @@ router.post('/user/:userId/favorite/:productId', authenticate, async (req, res) 
     console.log("Inside the favorite route");
     console.log(req.body);
     const { userId, productId } = req.params;
+
+    // Check if required fields are present in the request body
+    if (!req.body.productName || !req.body.productPrice || !req.body.productStock) {
+        return res.status(400).send({ message: 'Missing required fields' });
+    }
+
     try {
         console.log("Trying to find existing favorite");
         const existingFavorite = await Favorite.findOne({ userId, productId });
@@ -21,6 +27,9 @@ router.post('/user/:userId/favorite/:productId', authenticate, async (req, res) 
         const newFavorite = new Favorite({
             userId,
             productId,
+            productName: req.body.productName,
+            productPrice: req.body.productPrice,
+            productStock: req.body.productStock,
             favoritedAt: new Date()
         });
 
@@ -29,11 +38,25 @@ router.post('/user/:userId/favorite/:productId', authenticate, async (req, res) 
         console.log("Product added to favorites");
         res.send({ message: 'Product added to favorites' });
     } catch (error) {
-        console.error("Error in favorite route:", error);  // Log the error for debugging
+        console.error("Error in favorite route:", error);
         res.status(500).send({ message: 'Server error', error });
     }
-
 });
+
+router.delete('/user/:userId/favorite/:productId', authenticate, async (req, res) => {
+    const { userId, productId } = req.params;
+    try {
+        const favorite = await Favorite.findOneAndDelete({ userId, productId });
+        if (!favorite) {
+            return res.status(404).send({ message: 'Favorite not found' });
+        }
+        res.send({ message: 'Product removed from favorites' });
+    } catch (error) {
+        console.error("Error in remove favorite route:", error);
+        res.status(500).send({ message: 'Server error', error });
+    }
+});
+
 
 
 
@@ -48,9 +71,6 @@ router.get('/user/:userId/favorites', authenticate, async (req, res) => {
         res.status(500).send({ message: 'Server error', error });
     }
 });
-
-
-
 
 
 

@@ -7,12 +7,12 @@ import Products from "./products/products";
 import './Productcontainer.css'
 import productData from "./products/productData";
 import Showbar from "../pagedetail/suggestshow/showbar";
-import {ProductData} from "../../data/ProductData";
+import {ProductData} from "../../data/Clothing/ProductData";
 import { useParams } from 'react-router-dom';
 import sneakersData from "../../data/sneakersData";
 import CosmeticsData from "../../data/CosmeticsData";
 import FoodsData from "../../data/FoodsData";
-import ClothingsData from "../../data/Clothing/ClothingsData";
+import ClothingsData from "../../data/ClothingsData";
 import DrinksData from "../../data/DrinksData";
 import ElectronicsData from "../../data/electronicsData";
 import TopbarContainer from "../topbar/TopbarContainer";

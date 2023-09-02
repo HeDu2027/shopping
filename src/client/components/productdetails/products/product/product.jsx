@@ -38,11 +38,16 @@ const Product = ({ product, addToCart, layout }) => {
             }
 
             // Send the JWT token in the Authorization header
-            await axios.post(`http://localhost:4000/user/${loggedInUser._id}/favorite/${product.id}`, {}, {
+            await axios.post(`http://localhost:4000/user/${loggedInUser._id}/favorite/${product.id}`, {
+                productName: product.name,
+                productPrice: product.price,
+                productStock: product.stock
+            }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
+
 
             // Update the user's favorites in the context or state
             updateUser({
@@ -53,7 +58,7 @@ const Product = ({ product, addToCart, layout }) => {
             setIsFavorited(true);
 
         } catch (error) {
-            console.error("Failed to add product to favorites:", error);
+            console.error("Failed to add product to favorites:", error.response.data);
         }
     };
 
@@ -63,18 +68,43 @@ const Product = ({ product, addToCart, layout }) => {
         }
     }, [loggedInUser, product.id]);
 
+    const toggleFavorite = async (product) => {
+        if (isFavorited) {
+            // Remove from favorites
+            try {
+                const token = localStorage.getItem('jwtToken');
+                await axios.delete(`http://localhost:4000/user/${loggedInUser._id}/favorite/${product.id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                setIsFavorited(false);  // Update the state to reflect that the product is no longer favorited
+                // Update the user's favorites in the context or state
+                const updatedFavorites = loggedInUser.favorites.filter(fav => fav !== product.id);
+                updateUser({
+                    ...loggedInUser,
+                    favorites: updatedFavorites
+                });
+            } catch (error) {
+                console.error("Failed to remove product from favorites:", error);
+            }
+        } else {
+            // Add to favorites
+            addToFavorites(product);
+        }
+    };
+
+
+
 
     return (
         <div className={`product-wrapper ${isListLayout ? 'listLayout' : ''}`}>
             <div className='productcontainer'>
                 <div className='imagecontainer'>
-                    <div className={`favorite-icon ${isFavorited ? 'favorited' : ''}`} onClick={() => {
-                        setIsFavorited(!isFavorited);
-                        addToFavorites(product);
-                    }}>
-
-                    {isFavorited ? <MdFavorite size={26}/> : <MdFavoriteBorder size={26}/>}
+                    <div className={`favorite-icon ${isFavorited ? 'favorited' : ''}`} onClick={() => toggleFavorite(product)}>
+                        {isFavorited ? <MdFavorite size={26}/> : <MdFavoriteBorder size={26}/>}
                     </div>
+
                     <img src={product.mainImage} alt={product.name} className="image" />
                 </div>
 
