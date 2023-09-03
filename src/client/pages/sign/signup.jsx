@@ -71,6 +71,23 @@ function Signup() {
     // const [error, setError] = useState(null);
 
     const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        if (name.includes('.')) {
+            const [parent, child] = name.split('.');
+            setForm(prevState => ({
+                ...prevState,
+                [parent]: {
+                    ...prevState[parent],
+                    [child]: value
+                }
+            }));
+        } else {
+            setForm(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        }
         if (e.target.name === 'username' && /\d/.test(e.target.value)) {
             setUsernameError('Username should not contain any digits');
         } else {
@@ -89,10 +106,10 @@ function Signup() {
             setConfirmPasswordError(null);
         }
 
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value,
-        });
+        // setForm({
+        //     ...form,
+        //     [e.target.name]: e.target.value,
+        // });
     };
 
 

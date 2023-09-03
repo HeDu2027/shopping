@@ -63,11 +63,11 @@ const Profile = () => {
 
                     <div className='personal-infos-container'>
                         <div className='personal-infos-wrapper'>
-                            <p><strong>Street:</strong> {user.street}</p>
-                            <p><strong>City:</strong> {user.city}</p>
-                            <p><strong>State:</strong> {user.state}</p>
-                            <p><strong>Postal Code:</strong> {user.postalCode}</p>
-                            <p><strong>Country:</strong> {user.country}</p>
+                            <p><strong>Street:</strong> {user.address.street}</p>
+                            <p><strong>City:</strong> {user.address.city}</p>
+                            <p><strong>State:</strong> {user.address.state}</p>
+                            <p><strong>Postal Code:</strong> {user.address.postalCode}</p>
+                            <p><strong>Country:</strong> {user.address.country}</p>
                         </div>
                     </div>
                 </section>
@@ -112,10 +112,10 @@ const Profile = () => {
 
                     <div className='personal-infos-container'>
                         <div className='personal-infos-wrapper'>
-                            <p><strong>Facebook:</strong> {user.facebook}</p>
-                            <p><strong>Twitter:</strong> {user.twitter}</p>
-                            <p><strong>Instagram:</strong> {user.instagram}</p>
-                            <p><strong>LinkedIn:</strong> {user.linkedin}</p>
+                            <p><strong>Facebook:</strong> {user.socialAccounts.facebook}</p>
+                            <p><strong>Twitter:</strong> {user.socialAccounts.twitter}</p>
+                            <p><strong>Instagram:</strong> {user.socialAccounts.instagram}</p>
+                            <p><strong>LinkedIn:</strong> {user.socialAccounts.linkedin}</p>
                         </div>
                     </div>
                 </section>

@@ -13,7 +13,6 @@ const googleMapsClient = require('@google/maps').createClient({
     Promise: Promise
 });
 
-
 // Routes
 const authRoutes = require('./routes/auth');
 const emailVerifyRoutes = require('./routes/emailVerify');
@@ -91,7 +90,7 @@ app.use('/user',updatefileRoutes)
 app.use('/user',PersonalCenterRoutes)
 
 
-app.use('/productcontainer/images', express.static(path.join('/Users/hedu/shopping1/src/client/data', 'image')));
+app.use('/productcontainer/images', express.static(path.join('/Users/hedu/Desktop/shopping/src/client/data', 'image')));
 // app.use('/api', userRoutes);
 io.on('connection', (socket) => {
     //console.log('a user connected');
@@ -227,7 +226,7 @@ io.on('connection', (socket) => {
     // });
 
     socket.on('disconnect', () => {
-            console.log('user disconnected');
+           // console.log('user disconnected');
         });
     });
 

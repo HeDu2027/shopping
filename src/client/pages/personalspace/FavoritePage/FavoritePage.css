@@ -36,3 +36,9 @@
     gap: 3px;
     justify-content: space-between;
 }
+
+.item-list-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* This creates 5 equal columns */
+    gap: 20px; /* This adds spacing between the products */
+}
