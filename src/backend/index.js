@@ -32,9 +32,11 @@ const translationRoutes=require('./routes/transalation')
 const placeRoutes=require('./routes/place')
 const favoriteRoutes = require('./routes/favorites'); // Assuming the file name is favorites.js
 const updatefileRoutes=require('./routes/updateuser')
-const userRoutes = require('./routes/userRoutes');
+// const userRoutes = require('./routes/userRoutes');
 
 const PersonalCenterRoutes=require('./routes/PersonalCenterRoutes')
+
+const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
@@ -88,7 +90,9 @@ app.use('/user',updatefileRoutes)
 
 app.use('/user',PersonalCenterRoutes)
 
-app.use('/api', userRoutes);
+
+app.use('/productcontainer/images', express.static(path.join('/Users/hedu/shopping1/src/client/data', 'image')));
+// app.use('/api', userRoutes);
 io.on('connection', (socket) => {
     //console.log('a user connected');
 

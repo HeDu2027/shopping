@@ -34,9 +34,16 @@ const authenticate = async (req, res, next) => {
         // Continue to the next middleware or route handler
         next();
     } catch (error) {
-        console.error("Authentication middleware error:", error);
-        res.status(500).json({ message: 'Authentication error', error });
+        // Check if the error is specifically a TokenExpiredError
+        if (error instanceof jwt.TokenExpiredError) {
+            console.error("Authentication middleware error: Token has expired");
+            return res.status(401).json({ message: 'Authentication failed: Token has expired' });
+        }
+
+        console.error("Authentication middleware error:", error.name); // Log only the error name
+        res.status(500).json({ message: 'Authentication error', error: error.name });
     }
+
 };
 
 module.exports = authenticate;

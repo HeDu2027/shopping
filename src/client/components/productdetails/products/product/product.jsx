@@ -10,6 +10,7 @@ const Product = ({ product, addToCart, layout }) => {
     const [isFavorited, setIsFavorited] = useState(false);
     const { user: loggedInUser, updateUser } = useUser();
 
+    const imageName = product.mainImage.split('/').pop();
     const addToFavorites = async (product) => {
         console.log("Attempting to add to favorites:", product.id, loggedInUser._id);
         console.log("Current loggedInUser.favorites:", loggedInUser.favorites); // Debugging line
@@ -105,7 +106,7 @@ const Product = ({ product, addToCart, layout }) => {
                         {isFavorited ? <MdFavorite size={26}/> : <MdFavoriteBorder size={26}/>}
                     </div>
 
-                    <img src={product.mainImage} alt={product.name} className="image" />
+                    <img src={`http://localhost:4000/productcontainer/images/${imageName}`} alt={product.name} className="image" />
                 </div>
 
                 <div className='productName-container'>

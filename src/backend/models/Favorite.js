@@ -20,6 +20,9 @@ const FavoriteSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    productRating: {
+        type: Number,
+    },
     favoritedAt: Date
 });
 module.exports = mongoose.model('Favorite', FavoriteSchema);

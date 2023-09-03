@@ -5,6 +5,7 @@ const authenticate = require('../middleware/authMiddleware');
 
 const Favorite = require('../models/Favorite'); // Import the Favorite model
 const User = require('../models/user');
+const Product = require("../models/Product");
 router.post('/user/:userId/favorite/:productId', authenticate, async (req, res) => {
     console.log("Inside the favorite route");
     console.log(req.body);
@@ -24,13 +25,14 @@ router.post('/user/:userId/favorite/:productId', authenticate, async (req, res) 
         }
 
         console.log("Creating new favorite");
+
         const newFavorite = new Favorite({
             userId,
             productId,
             productName: req.body.productName,
             productPrice: req.body.productPrice,
             productStock: req.body.productStock,
-            favoritedAt: new Date()
+            favoritedAt: new Date(),
         });
 
         console.log("Saving new favorite");
@@ -62,17 +64,28 @@ router.delete('/user/:userId/favorite/:productId', authenticate, async (req, res
 
 router.get('/user/:userId/favorites', authenticate, async (req, res) => {
     try {
-        const user = await User.findById(req.params.userId).populate('favorites');
-        if (!user) {
-            return res.status(404).send({ message: 'User not found' });
-        }
-        res.send(user.favorites);
+        const userId = req.params.userId;
+
+        // Fetch the favorite product IDs for the user
+        const favorites = await Favorite.find({ userId: userId });
+
+        // Log the fetched favorites for the user
+        console.log("Found favorites for user:", favorites);
+
+        // Extract product IDs from the favorites
+        const productIds = favorites.map(fav => fav.productId);
+
+        // Fetch the details of each favorite product
+        const products = await Product.find({ _id: { $in: productIds } });
+
+        // Log the fetched favorite products
+        console.log("Found favorite products:", products);
+
+        res.json(products);
     } catch (error) {
-        res.status(500).send({ message: 'Server error', error });
+        res.status(500).json({ error: 'Failed to fetch favorite products' });
     }
 });
-
-
 
 module.exports = router;
 

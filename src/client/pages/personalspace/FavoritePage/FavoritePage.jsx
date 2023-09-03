@@ -3,6 +3,7 @@ import axios from "axios";
 import Topbar from "../../../components/topbar/Topbar";
 import './FavoritePage.css'
 import { UserContext } from "../userContext/UserContext";
+import StarRating from "../../../components/pagedetail/suggestshow/StarRating";
 
 const FavoritePage = () => {
     const { user: loggedInUser } = useContext(UserContext);
@@ -58,13 +59,25 @@ const FavoritePage = () => {
 }
 
 const Product = ({ data }) => {
+
     console.log("Rendering product:", data.name); // <-- Add this line
+    const imageName = data.mainImage.split('/').pop();
     return (
-        <div className='card-wrapper'>
-            <img className='image-wrapper' src={data.mainImage} alt={data.name} />
-            <div className='name-wrapper'>
-                {data.name}
+        <div className='product-container'>
+            <img
+                className='image-wrapper'
+                src={`http://localhost:4000/productcontainer/images/${imageName}`}
+                alt={data.name}
+            />
+            <div className='productName-container'>
+                <p className="productName">{data.name}</p>
             </div>
+            <div className='name-wrapper'>
+                {data.stock} in stock
+            </div>
+            {/*<StarRating score={data.rating} />*/}
+            {/*<StarRating score={data.rating} />*/}
+            <p className="productPrice">{data.price}</p>
         </div>
     );
 }

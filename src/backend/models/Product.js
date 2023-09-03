@@ -7,11 +7,7 @@ const ProductSchema = new mongoose.Schema({
     stock: Number,
     mainImage: String,
     images: [String],
-    rating: {
-        average: { type: Number, default: 0 },
-        totalRatings: { type: Number, default: 0 },
-        sumOfRatings: { type: Number, default: 0 }
-    },
+    rating: Number,
     category: {
         type: String,
         enum: ['drink', 'clothing', 'food', 'cosmetics', 'electronics'] // Add or remove categories as needed
