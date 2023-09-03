@@ -6,13 +6,15 @@ import { useUser } from "../userContext/UserContext"; // Update this path
 
 const BrowserHistory = () => {
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const { user: loggedInUser } = useUser();
 
     useEffect(() => {
-        // Fetch user's browser history products from the backend
         const fetchBrowserHistory = async () => {
             if (!loggedInUser?._id) {
-                console.error("User is not logged in or user ID is undefined");
+                setError("User is not logged in or user ID is undefined");
+                setLoading(false);
                 return;
             }
 
@@ -20,11 +22,17 @@ const BrowserHistory = () => {
                 const response = await axios.get(`http://localhost:4000/user/${loggedInUser._id}/browser-history`);
                 setProducts(response.data.browsingHistory);
             } catch (error) {
+                setError("Failed to fetch browser history");
                 console.error("Failed to fetch browser history:", error);
+            } finally {
+                setLoading(false);
             }
         };
         fetchBrowserHistory();
     }, [loggedInUser]);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
 
     return (
         <div className='browser-history-container'>
@@ -38,17 +46,18 @@ const BrowserHistory = () => {
                 </div>
 
                 <div className='item-list-container'>
-                    {products.map(product => (
-                        <Product key={product.productId} data={product} />
-                    ))}
+                    {products.length ? (
+                        products.map(product => (
+                            <Product key={product.productId} data={product} />
+                        ))
+                    ) : (
+                        <div>You have no browsing history.</div>
+                    )}
                 </div>
             </div>
         </div>
     );
 }
-
-// ... rest of the code remains unchanged
-
 
 const Product = ({ data }) => {
     return (

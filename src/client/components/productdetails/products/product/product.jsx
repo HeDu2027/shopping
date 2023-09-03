@@ -3,12 +3,14 @@ import './Product.css';
 import StarRating from "../../../pagedetail/suggestshow/StarRating";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import axios from "axios";
-import { useUser } from "../../../../pages/personalspace/userContext/UserContext"; // Update this path
+import { useUser } from "../../../../pages/personalspace/userContext/UserContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const Product = ({ product, addToCart, layout }) => {
     const isListLayout = layout === 'list';
     const [isFavorited, setIsFavorited] = useState(false);
     const { user: loggedInUser, updateUser } = useUser();
+    const navigate = useNavigate();
 
     const imageName = product.mainImage.split('/').pop();
     const addToFavorites = async (product) => {
@@ -68,6 +70,7 @@ const Product = ({ product, addToCart, layout }) => {
             setIsFavorited(true);
         }
     }, [loggedInUser, product.id]);
+    console.log("Toggling favorite for product ID:", product.id);
 
     const toggleFavorite = async (product) => {
         if (isFavorited) {
@@ -94,19 +97,38 @@ const Product = ({ product, addToCart, layout }) => {
             addToFavorites(product);
         }
     };
+    console.log("Navigating to product detail for product ID:", product.id);
 
+    const navigateToProductDetail = async () => {
+        // Redirect to the product detail page
+        navigate(`/product/${product.id}`);
 
-
-
+        // Add the product ID to the user's browsing history
+        try {
+            await axios.post(`http://localhost:4000/user/${loggedInUser._id}/add-to-history`, {
+                productId: product.id
+            });
+        } catch (error) {
+            console.error("Failed to add to browsing history:", error);
+        }
+    };
+    console.log("Adding to browsing history for user ID:", loggedInUser._id, "with product ID:", product.id);
     return (
         <div className={`product-wrapper ${isListLayout ? 'listLayout' : ''}`}>
             <div className='productcontainer'>
+
                 <div className='imagecontainer'>
                     <div className={`favorite-icon ${isFavorited ? 'favorited' : ''}`} onClick={() => toggleFavorite(product)}>
                         {isFavorited ? <MdFavorite size={26}/> : <MdFavoriteBorder size={26}/>}
                     </div>
 
-                    <img src={`http://localhost:4000/productcontainer/images/${imageName}`} alt={product.name} className="image" />
+                    {/* Updated the image to have an onClick event instead of being wrapped in a Link */}
+                    <img
+                        src={`http://localhost:4000/productcontainer/images/${imageName}`}
+                        alt={product.name}
+                        className="image"
+                        onClick={navigateToProductDetail} // Added onClick event here
+                    />
                 </div>
 
                 <div className='productName-container'>
@@ -120,6 +142,7 @@ const Product = ({ product, addToCart, layout }) => {
             </div>
         </div>
     )
+
 }
 
 export default Product;

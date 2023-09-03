@@ -1,21 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import Searchbar from "../searchbar/searchbar";
-import {PiArrowUUpLeftBold, PiCurrencyDollarSimpleFill} from "react-icons/pi";
 import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
-import {BsLightningCharge, BsPatchCheckFill} from "react-icons/bs";
 import {FaCcDiscover, FaCcMastercard, FaCcPaypal, FaCcVisa, FaGooglePay} from "react-icons/fa";
-import {BiMinus, BiPlus, BiSolidBadgeDollar} from "react-icons/bi";
-import {HiShoppingBag} from "react-icons/hi";
-import {IoMdInformationCircle} from "react-icons/io";
+import {BiMinus, BiPlus} from "react-icons/bi";
 import Footer from "../footer/footer";
-import { ProductData, ClothingData, getRandomRating } from '../../data/Clothing/ProductData';
+import { ClothingData, getRandomRating } from '../../data/Clothing/ProductData';
 import Showbar from "./suggestshow/showbar"; // Replace with the actual path
 import {Data} from '../../data/datas'
 import Topbar from "../topbar/Topbar";
 import StarRating from "./suggestshow/StarRating";
-
- // const images = [image1, image2, image3, image4, image5, image6, image7];
+import axios from "axios";
+import { useUser } from "../../pages/personalspace/userContext/UserContext"; // Update this path if necessary
 
 const ProductDetail = () => {
 
@@ -69,23 +64,65 @@ const ProductDetail = () => {
         },
     }
 
-    // const { id } = useParams();
-    // const allProducts = [...ProductData, ...ClothingData];
-    // const product = allProducts.find(p => p.id === parseInt(id));
-    // const allImages = product ? [product.mainImage, ...product.images] : [];
+    const { user: loggedInUser, updateUser } = useUser();
+
 
     const { id } = useParams();
     console.log("Retrieved ID:", id);
+    useEffect(() => {
+        // Fetch product data from the backend
+        console.log("Fetching product details for ID:", id);
 
-    const product = Data.find(p => p.id === id);
-    console.log("Found Product:", product);
+        axios.get(`http://localhost:4000/product/${id}`)
+            .then(response => {
+                setProduct(response.data);
+                setSelectedImage(response.data.mainImage);  // Update selectedImage here
+
+                // Update user's browsing history
+                if (loggedInUser?._id) {
+                    const token = localStorage.getItem('jwtToken');
+                    if (token) {
+                        axios.post(`http://localhost:4000/user/${loggedInUser._id}/browser-history`, {
+                            productId: response.data._id
+                        }, {
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        }).then(() => {
+                            console.log("Browsing history updated successfully.");
+                        }).catch(error => {
+                            console.error("Error updating browsing history:", error);
+                        });
+                    }
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching product:", error);
+            });
+
+    }, [id, loggedInUser]);
+
+    const [product, setProduct] = useState(null); // Initialize product state to null
+    const [selectedImage, setSelectedImage] = useState("");
+    useEffect(() => {
+        // Fetch product data from the backend
+        axios.get(`http://localhost:4000/product/${id}`)
+
+            .then(response => {
+                setProduct(response.data);
+                setSelectedImage(response.data.mainImage);  // Update selectedImage here
+            })
+            .catch(error => {
+                console.error("Error fetching product:", error);
+            });
+    }, [id]);
 
     const allImages = product ? [product.mainImage, ...product.images] : [];
 
-    const [selectedImage, setSelectedImage] = useState(product.mainImage);
-
     useEffect(() => {
-        setSelectedImage(product ? product.mainImage : allImages[0]); // Changed product.image to product.mainImage
+        if (product) {
+            setSelectedImage(product.mainImage);
+        }
         const handleKeyDown = (event) => {
             if (event.key === 'ArrowLeft') {
                 handlePrevClick();
@@ -100,7 +137,7 @@ const ProductDetail = () => {
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, [selectedImage]);
+    }, [selectedImage, product]);
 
     if (!product) {
         return <div>Product not found!</div>;
@@ -129,7 +166,7 @@ const ProductDetail = () => {
     };
 
 
-
+    const imageName = selectedImage.split('/').pop();
     return (
         <div>
 
@@ -161,20 +198,22 @@ const ProductDetail = () => {
                                         padding:'5px'
                                     }}>
                                         <FiChevronLeft onClick={handlePrevClick} />
-                                        <img src={selectedImage} alt="Selected" style={{ width: '100%', height: '100%' }} />
+                                        <img src={`http://localhost:4000/productcontainer/images/${imageName}`} alt="Selected" style={{ width: '100%', height: '100%' }} />
                                         <FiChevronRight onClick={handleNextClick} />
                                     </div>
 
                                     <div style={{ display: 'flex', flexDirection: 'row', gap: '10px', justifyContent: 'center' }}>
-                                        {allImages.map((image, index) => (
-                                            <img key={index} src={image} alt="Small" onClick={() => handleImageClick(image)}
+                                        {allImages.map((image, index) => {
+                                            const smallImageName = image.split('/').pop();
+                                            return(
+                                            <img key={index} src={`http://localhost:4000/productcontainer/images/${smallImageName}`}  alt="Small" onClick={() => handleImageClick(image)}
                                                  style={{ width: '100px', height: '100px',
                                                      borderRadius:'10px',
                                                      backgroundColor:'blanchedalmond',
                                                      padding:'2px',
                                                      border: selectedImage === image ? '1px solid blue' : 'none', cursor: 'pointer',
                                                  }} />
-                                        ))}
+                                        )})}
                                     </div>
                                 </div>
 
@@ -228,28 +267,6 @@ const ProductDetail = () => {
                                     </div>
 
 
-
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-                                    {}
-
                                     <div style={{height:'10px'}}>
 
                                     </div>
@@ -288,21 +305,6 @@ const ProductDetail = () => {
                                         </div>
 
                                         <div style={{height:'5px'}}></div>
-
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
-                                        {}
 
                                         <div style={{height:'5px'}}></div>
 

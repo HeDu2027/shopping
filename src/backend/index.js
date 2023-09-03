@@ -34,6 +34,7 @@ const updatefileRoutes=require('./routes/updateuser')
 // const userRoutes = require('./routes/userRoutes');
 
 const PersonalCenterRoutes=require('./routes/PersonalCenterRoutes')
+const productRoutes = require('./routes/product');
 
 const path = require('path');
 
@@ -91,6 +92,7 @@ app.use('/user',PersonalCenterRoutes)
 
 
 app.use('/productcontainer/images', express.static(path.join('/Users/hedu/Desktop/shopping/src/client/data', 'image')));
+app.use('/product', productRoutes); // Use product routes
 // app.use('/api', userRoutes);
 io.on('connection', (socket) => {
     //console.log('a user connected');

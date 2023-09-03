@@ -92,7 +92,7 @@ function App() {
 
                                     <Route path="/newpage" element={<Newpage/>}/>
                                     <Route path="/checkpage" element={<Checkpage/>}/>
-                                    <Route path="/pagedetail/:id" element={<ProductDetail/>}/>
+                                    <Route path="/product/:id" element={<ProductDetail/>}/>
                                     <Route path="/leavemessage" element={<Leavemessage/>}/>
 
                                     <Route path="/instantmessage" element={<Instantmessage/>}/>

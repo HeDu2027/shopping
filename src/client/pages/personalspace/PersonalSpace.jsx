@@ -45,7 +45,7 @@ const Card = ({data}) => {
   return(
       <div className='card-wrapper'>
           <Link to={data.path}>
-              <img className='image-wrapper' src={data.image} alt={data.name}/>
+              <img className='image-wrapper-personal-space' src={data.image} alt={data.name}/>
               <div className='name-wrapper'>
                   {data.icon}
                   {data.name}
