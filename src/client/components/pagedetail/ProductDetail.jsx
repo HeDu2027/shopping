@@ -10,7 +10,8 @@ import {Data} from '../../data/datas'
 import Topbar from "../topbar/Topbar";
 import StarRating from "./suggestshow/StarRating";
 import axios from "axios";
-import { useUser } from "../../pages/personalspace/userContext/UserContext"; // Update this path if necessary
+import { useUser } from "../../pages/personalspace/userContext/UserContext";
+import CommentSection from "../comment/CommentSection"; // Update this path if necessary
 
 const ProductDetail = () => {
 
@@ -337,17 +338,21 @@ const ProductDetail = () => {
                     </div>
 
                 </div>
-                <div style={{height: '50px'}}></div>
+                <div style={{height: '5px'}}></div>
 
             </div>
 
             <div>
-                <Showbar data={ClothingData}/>
+                <CommentSection/>
             </div>
 
-            <hr style={{border: '1px solid black',width:'1350px'}} />
+            {/*<div>*/}
+            {/*    <Showbar data={ClothingData}/>*/}
+            {/*</div>*/}
 
-            <div style={{position:'relative',width:'60%',margin:'190px 0',justifyContent:'center',alignItems:'center',left:'28%'}}>
+            {/*<hr style={{border: '1px solid black',width:'1350px'}} />*/}
+
+            <div>
                 <Footer/>
             </div>
 

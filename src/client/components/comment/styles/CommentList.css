@@ -1,0 +1,46 @@
+.comment-list .comment {
+    max-height: 60vh; /* This will make the comment list scrollable if content exceeds this height */
+    overflow-y: auto;
+    max-width: 90%;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 20px;
+//margin-bottom: 10px;
+    position: relative;
+    margin: 50px;
+}
+
+.comment-list .comment .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comment-list .comment .user-info img {
+    width: 1000px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-list .comment .stars {
+    font-size: 12px;
+    color: #FFD700;
+    margin-bottom: 5px;
+}
+
+.comment-list .comment .comment-content p {
+    margin: 0;
+}
+
+.comment-list .comment:after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-color: #ffffff;
+    transform: translateY(-50%);
+}

@@ -1,6 +1,5 @@
-// ReplyForm.js
 import React, { useState } from 'react';
-
+import './styles/ReplyForm.css'
 function ReplyForm({ onReply }) {
     const [reply, setReply] = useState('');
 

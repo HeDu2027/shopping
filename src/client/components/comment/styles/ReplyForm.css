@@ -1,0 +1,11 @@
+.reply-container {
+    width: 1000px;
+    max-height: 1000px;
+    overflow-y: auto;
+    transition: max-height 0.3s;
+    margin: 10px 0;
+}
+
+.comment-list:hover .reply-container {
+    max-height: 200px;
+}

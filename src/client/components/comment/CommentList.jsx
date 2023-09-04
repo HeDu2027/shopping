@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ReplyForm from './ReplyForm';
 import { AiOutlineLike, AiOutlineDislike, AiFillStar, AiOutlineStar } from "react-icons/ai";
-
-
-function CommentList({ comments, onReply,setComments, userActions, setUserActions }) {
+import './styles/CommentList.css'
+import Pagination from "./Pagination";
+import { useUser } from '../../pages/personalspace/userContext/UserContext';
+import axios from "axios";
+function CommentList({ productId, onReply, userActions, setUserActions }) {
+    const { user } = useUser();
     const [currentPage, setCurrentPage] = useState(1);
     const COMMENTS_PER_PAGE = 3; // Adjust this number based on your preference
 
@@ -11,6 +14,22 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
     const indexOfFirstComment = indexOfLastComment - COMMENTS_PER_PAGE;
     const currentComments = comments.slice(indexOfFirstComment, indexOfLastComment);
     const [replyVisibility, setReplyVisibility] = useState({}); // State to manage the visibility of each ReplyForm
+
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        const fetchComments = async () => {
+            try {
+                const response = await axios.get(`http://localhost:4000/products/${productId}/comments`);
+                console.log("Fetched Comments:", response.data);  // Log the fetched comments
+                setComments(response.data);
+            } catch (error) {
+                console.error("Error fetching comments:", error);
+            }
+        };
+
+        fetchComments();
+    }, [productId]);
 
     const handleKeyPress = (e, commentId) => {
         if (e.key === 'Enter' && !e.shiftKey) {
@@ -25,7 +44,7 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
             [commentId]: !prevState[commentId]
         }));
     };
-    const handleReplySubmit = (commentId, newReply) => {
+    const handleReplySubmit = async (commentId, newReply) => {
         // Map through the comments
         const updatedComments = comments.map(comment => {
             // If the comment's id matches the one we're replying to
@@ -43,11 +62,17 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
         setComments(updatedComments);
         // Hide the reply form for the comment we just replied to
         setReplyVisibility(prevState => ({ ...prevState, [commentId]: false }));
+
+        // try {
+        //     await axios.post(`http://localhost:4000/user/comments/${commentId}/replies`, { reply: newReply }); // Adjusted the endpoint
+        // } catch (error) {
+        //     console.error("Error posting reply:", error);
+        // }
     };
 
 
 
-    const handleLike = (commentId) => {
+    const handleLike = async (commentId) => {
         if (userActions[commentId] !== 'like') {
             const updatedComments = comments.map(comment => {
                 if (comment.id === commentId) {
@@ -63,9 +88,15 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
             setComments(updatedComments);
             setUserActions({ ...userActions, [commentId]: 'like' });
         }
+
+        // try {
+        //     await axios.put(`http://localhost:4000/user/comments/${commentId}/like`); // Adjusted the endpoint
+        // } catch (error) {
+        //     console.error("Error updating like:", error);
+        // }
     };
 
-    const handleDislike = (commentId) => {
+    const handleDislike = async (commentId) => {
         if (userActions[commentId] !== 'dislike') {
             const updatedComments = comments.map(comment => {
                 if (comment.id === commentId) {
@@ -81,111 +112,93 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
             setComments(updatedComments);
             setUserActions({ ...userActions, [commentId]: 'dislike' });
         }
+
+        // try {
+        //     await axios.put(`http://localhost:4000/user/comments/${commentId}/dislike`); // Adjusted the endpoint
+        // } catch (error) {
+        //     console.error("Error updating dislike:", error);
+        // }
     };
 
 
     return (
         <div className="comment-list">
-            {currentComments.map((commentObj) => (
-                <div key={commentObj.id} className="comment">
+            {currentComments.map((comment) => (
+                <div key={comment.id} className="comment">
 
                     <div className="user-info">
-                        <img src={commentObj.userAvatar} alt="User Avatar" />
-                        <span>{commentObj.userName}</span>
+                        {/*<img src={comment.userAvatar} alt="User Avatar" />*/}
+                        <span style={{padding:'10px'}}>{comment.name}</span>
                     </div>
 
-                    <div className="comment-header">
-                        <strong style={{ fontSize: '1.2em' }}>{commentObj.title}</strong>
-                        <div className="stars" style={{ marginLeft: '5px' }}>
+                    <div className="comment-header" >
+                        <strong style={{ fontSize: '1.2em' }}>{comment.title}</strong>
+                        <div className="stars" style={{marginLeft:'10px'}}>
                             {[...Array(5)].map((_, index) => {
-                                const StarIcon = index < commentObj.rating ? AiFillStar : AiOutlineStar;
+                                const StarIcon = index < comment.rating ? AiFillStar : AiOutlineStar;
                                 return (
                                     <StarIcon
                                         key={index}
                                         size={20}
-                                        color={index < commentObj.rating ? '#FFD700' : '#A9A9A9'}
+                                        color={index < comment.rating ? '#FFD700' : '#A9A9A9'}
                                     />
                                 );
                             })}
                         </div>
                     </div>
 
-                    <div className="comment-date">
-                        {commentObj.date && commentObj.date instanceof Date ?
-                            `${commentObj.date.getHours()}:${commentObj.date.getMinutes()}, 
-         ${commentObj.date.getDate()}/${commentObj.date.getMonth() + 1}/${commentObj.date.getFullYear()}, 
-         ${commentObj.location}`
+                    <div className="comment-date" style={{paddingLeft:'10px',paddingTop:'2px'}}>
+                        {comment.date && comment.date instanceof Date ?
+                            `${comment.date.getHours()}:${comment.date.getMinutes()},
+                            ${comment.date.getDate()}/${comment.date.getMonth() + 1}/${comment.date.getFullYear()},
+                            ${comment.location}`
                             : 'N/A'}
                     </div>
 
-                    {}
-                    {}
-                    {}
+                    <p style={{paddingLeft:'10px',paddingTop:'2px'}}>{comment.comment}</p>
 
-
-
-                    <p>{commentObj.comment}</p>
-
-                    <div className="comment-actions">
+                    <div className="comment-actions" style={{paddingLeft:'10px'}}>
                         <AiOutlineLike
                             size={20}
-                            color={userActions[commentObj.id] === 'like' ? '#FFD700' : '#A9A9A9'}
-                            onClick={() => handleLike(commentObj.id)}
+                            color={userActions[comment.id] === 'like' ? '#FFD700' : '#A9A9A9'}
+                            onClick={() => handleLike(comment.id)}
                         />
-                        <span>{commentObj.likes}</span>
+                        <span style={{paddingRight:'5px'}}>{comment.likes}</span>
                         <AiOutlineDislike
                             size={20}
-                            color={userActions[commentObj.id] === 'dislike' ? '#FFD700' : '#A9A9A9'}
-                            onClick={() => handleDislike(commentObj.id)}
+                            color={userActions[comment.id] === 'dislike' ? '#FFD700' : '#A9A9A9'}
+                            onClick={() => handleDislike(comment.id)}
                         />
-                        <span>{commentObj.dislikes}</span>
+                        <span>{comment.dislikes}</span>
                     </div>
 
 
                     <div className="comment-content">
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {commentObj.images && commentObj.images.map((image, index) => (
+
+                        {comment.images && comment.images.map((image, index) => (
                             <img key={index} src={URL.createObjectURL(image)} alt="Uploaded" style={{ width: '200px', height: '200px' }} />
                         ))}
-                        {commentObj.video &&
+                        {comment.video &&
                             <video width="200" height="200" controls>
-                                <source src={URL.createObjectURL(commentObj.video)} type="video/mp4" />
+                                <source src={URL.createObjectURL(comment.video)} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         }
-                        <button onClick={() => toggleReply(commentObj.id)}>Reply</button>
-                        {replyVisibility[commentObj.id] && (
+                        <button onClick={() => toggleReply(comment.id)}>Reply</button>
+                        {replyVisibility[comment.id] && (
                             <div className="reply-container">
-                                <ReplyForm onReply={(reply) => handleReplySubmit(commentObj.id, reply)} />
+                                <ReplyForm onReply={(reply) => handleReplySubmit(comment.id, reply)} />
                             </div>
                         )}
 
                         <div className="replies">
-                            {Array.isArray(commentObj.replies) && commentObj.replies.map((reply, index) => (
+                            {Array.isArray(comment.replies) && comment.replies.map((reply, index) => (
                                 <div key={index} className="reply">
                                     <p>{reply}</p>
                                 </div>
                             ))}
                         </div>
 
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
-                        {}
                     </div>
                 </div>
             ))}
@@ -200,27 +213,6 @@ function CommentList({ comments, onReply,setComments, userActions, setUserAction
     );
 }
 
-const Pagination = ({ totalComments, commentsPerPage, currentPage, paginate }) => {
-    const pageNumbers = [];
-
-    for (let i = 1; i <= Math.ceil(totalComments / commentsPerPage); i++) {
-        pageNumbers.push(i);
-    }
-
-    return (
-        <nav>
-            <ul className='pagination'>
-                {pageNumbers.map(number => (
-                    <li key={number} className='page-item'>
-                        <a onClick={() => paginate(number)} className='page-link'>
-                            {number}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
-    );
-};
 
 
 export default CommentList;

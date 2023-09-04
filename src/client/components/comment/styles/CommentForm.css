@@ -1,0 +1,84 @@
+.comment-form {
+    position: relative;
+    width: 90%;
+    background-color: whitesmoke;
+    padding: 10px;
+    margin: 10px 0 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    border-radius: 20px;
+
+}
+
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    width: 20%;
+    height: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    outline: none;
+    resize: none;
+    border: none;
+}
+
+.comment-form textarea {
+    height: 40px;
+    width: 30%;
+    margin-right: 30px;
+}
+
+.rating-container{
+    margin-right: 30px;
+}
+
+.comment-form .rating-container {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.comment-form .rating-container label {
+    margin-right: 1px;
+}
+
+.comment-form .rating-container .stars {
+    display: flex;
+    gap: 2px;
+}
+
+
+.comment-form button {
+    background-color: #25d366;
+    color: #ffffff;
+    border: none;
+    width: 80px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px 30px 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-form button:hover {
+    background-color: #054C43;
+}
+
+.uploaded-images img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 5px;
+}
+
+.comment-content video {
+    width: 200px;
+    height: 200px;
+}
+
+

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Signup from "./pages/sign/signup";
-import S from "./pages/sign/s";
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Login from "./pages/login/login";
@@ -20,7 +19,6 @@ import Showbar from "./components/pagedetail/suggestshow/showbar";
 import Shoppage from "./components/shoppage/shoppage";
 import Newpage from "./components/shoppage/newpage";
 import Checkpage from "./components/checkpage/checkpage";
-import Sign from "./pages/sign/sign";
 import ProductDetail from "./components/pagedetail/ProductDetail";
 import Leavemessage from "./pages/leavemessage/leavemessage";
 import Instantmessage from "./pages/message/instantmessage/instantmessage";
@@ -66,9 +64,7 @@ function App() {
                         <div style={{display: 'flex'}}>
                             <Router>
                                 <Routes>
-                                    <Route path="/sign" element={<Sign/>}/>
                                     <Route path="/signup" element={<Signup/>}/>
-                                    <Route path="/s" element={<S/>}/>
                                     <Route path="/login" element={<Login/>}/>
                                     <Route path="/forgot-password" element={<ForgotPassword/>}/>
                                     <Route path="/home" element={<Home addToCart={addToCart}/>}/>
@@ -103,7 +99,7 @@ function App() {
                                     <Route path="/voicecall" element={<Voicecall/>}/>
                                     <Route path="/emoji" element={<Emoji/>}/>
 
-                                    <Route path="/commentsection" element={<CommentSection/>}/>
+                                    <Route path="/products/:productId" element={<CommentSection/>}/>
 
                                     <Route path="/parentcomponent" element={<TopbarContainer/>}/>
                                     <Route path="/personalspace" element={<PersonalSpace/>}/>

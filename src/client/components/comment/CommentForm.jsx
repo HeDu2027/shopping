@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { v4 as uuidv4 } from 'uuid';  // <-- Import the UUID function
-
+import './styles/CommentForm.css'
 function CommentForm({ onSubmit }) {
     const [comment, setComment] = useState('');
     const [title, setTitle] = useState(''); // New title state
@@ -76,18 +76,18 @@ function CommentForm({ onSubmit }) {
 
     return (
         <div className="comment-form">
-            <input
+            <input className='title-input'
                 type="text"
                 placeholder="Title..."
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
-            <textarea
+            <textarea className="comment-input"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Write your comment..."
             />
-            <div>
+            <div className='rating-container'>
                 <label>Rating:</label>
                 {[...Array(5)].map((_, index) => {
                     const StarIcon = index < rating ? AiFillStar : AiOutlineStar;
@@ -103,12 +103,10 @@ function CommentForm({ onSubmit }) {
                 })}
             </div>
 
-            <div>
-                <label>Upload Media (Images/Video):</label>
+            <div className="upload-container">
                 <input type="file" multiple onChange={handleMediaChange} accept="image/*,video/*" />
             </div>
 
-            {}
             <div>
                 {media.map((file, index) => {
                     if (file.type.startsWith('image/')) {
@@ -128,7 +126,7 @@ function CommentForm({ onSubmit }) {
             </div>
 
 
-            <button onClick={handleSubmit}>Submit</button>
+            <button className='submit-button' onClick={handleSubmit}>Submit</button>
         </div>
     );
 }
