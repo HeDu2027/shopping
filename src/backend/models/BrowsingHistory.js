@@ -14,6 +14,7 @@ const browsingHistorySchema = new mongoose.Schema({
     }]
 });
 
+
 const BrowsingHistory = mongoose.model('BrowsingHistory', browsingHistorySchema);
 
 module.exports = BrowsingHistory;

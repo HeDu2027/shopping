@@ -1,5 +1,5 @@
 const express = require('express');
-const BrowsingHistory = require("../models/browsingHistory"); // Import the BrowsingHistory model
+const BrowsingHistory = require("../models/browsingHistory");
 const router = express.Router();
 
 router.post('/:userId/add-to-history', async (req, res) => {
@@ -15,11 +15,11 @@ router.post('/:userId/add-to-history', async (req, res) => {
         const existingProductIndex = history.products.findIndex(p => p.productId.toString() === productId);
 
         if (existingProductIndex !== -1) {
-            // Update the browsedAt time for the existing product
-            history.products[existingProductIndex].browsedAt = Date.now();
+            // Update the timestamp for the existing product
+            history.products[existingProductIndex].timestamp = Date.now();
         } else {
             // Add a new entry to the browsingHistory
-            history.products.push({ productId, browsedAt: Date.now() });
+            history.products.push({ productId, timestamp: Date.now() });
         }
 
         await history.save();
@@ -28,22 +28,21 @@ router.post('/:userId/add-to-history', async (req, res) => {
         console.error("Error:", error.message);
         res.status(500).send(`Server error: ${error.message}`);
     }
-
 });
 
 // Fetch user's browsing history
 router.get('/:userId/browser-history', async (req, res) => {
     console.log("Fetching browsing history for user ID:", req.params.userId);
     try {
-        const history = await BrowsingHistory.findOne({ userId: req.params.userId }).populate('products.productId');
+        const history = await BrowsingHistory.findOne({ userId: req.params.userId });
         if (!history) return res.status(404).send("Browsing history not found");
 
+        // Return only the productIds and their associated timestamps
         res.status(200).json({ browsingHistory: history.products });
     } catch (error) {
         console.error("Error:", error.message);
         res.status(500).send(`Server error: ${error.message}`);
     }
-
 });
 
 module.exports = router;
