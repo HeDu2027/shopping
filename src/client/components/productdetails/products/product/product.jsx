@@ -112,7 +112,9 @@ const Product = ({ product, addToCart, layout }) => {
             console.error("Failed to add to browsing history:", error);
         }
     };
+
     console.log("Adding to browsing history for user ID:", loggedInUser._id, "with product ID:", product.id);
+
     return (
         <div className={`product-wrapper ${isListLayout ? 'listLayout' : ''}`}>
             <div className='productcontainer'>

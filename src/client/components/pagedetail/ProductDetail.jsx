@@ -82,8 +82,7 @@ const ProductDetail = () => {
                 if (loggedInUser?._id) {
                     const token = localStorage.getItem('jwtToken');
                     if (token) {
-                        axios.post(`http://localhost:4000/user/${loggedInUser._id}/browser-history`, {
-                            productId: response.data._id
+                        axios.post(`http://localhost:4000/user/${loggedInUser._id}/add-to-history`, {                            productId: response.data._id
                         }, {
                             headers: {
                                 'Authorization': `Bearer ${token}`

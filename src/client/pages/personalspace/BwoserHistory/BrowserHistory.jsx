@@ -20,7 +20,24 @@ const BrowserHistory = () => {
 
             try {
                 const response = await axios.get(`http://localhost:4000/user/${loggedInUser._id}/browser-history`);
-                setProducts(response.data.browsingHistory);
+                console.log("Browsing History Response:", response.data);
+                // Check if the response contains product details directly or just product IDs
+                if (response.data.browsingHistory && Array.isArray(response.data.browsingHistory) && typeof response.data.browsingHistory[0] === 'object') {
+                    // If the browsingHistory contains product details directly
+                    setProducts(response.data.browsingHistory);
+                } else {
+                    // If the browsingHistory contains only product IDs
+                    const productIds = response.data.browsingHistory; // Assuming this is an array of product IDs
+
+                    // Fetch product details for each product ID
+                    const productDetailsPromises = productIds.map(id => axios.get(`http://localhost:4000/product/${id}`));
+                    const productDetailsResponses = await Promise.all(productDetailsPromises);
+                    console.log("Product Details Responses:", productDetailsResponses);
+
+                    const allProducts = productDetailsResponses.map(res => res.data);
+                    console.log("Mapped Products:", allProducts);
+                    setProducts(allProducts);
+                }
             } catch (error) {
                 setError("Failed to fetch browser history");
                 console.error("Failed to fetch browser history:", error);
@@ -28,8 +45,10 @@ const BrowserHistory = () => {
                 setLoading(false);
             }
         };
+
         fetchBrowserHistory();
     }, [loggedInUser]);
+
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
@@ -60,14 +79,19 @@ const BrowserHistory = () => {
 }
 
 const Product = ({ data }) => {
+    console.log("Product Data:", data);
     return (
         <div className='card-wrapper'>
-            <img className='image-wrapper' src={data.image} alt={data.name} />
+            <img className='image-wrapper' src={data.mainImage} alt={data.name} /> {/* Updated data.image to data.mainImage based on the product structure you provided */}
             <div className='name-wrapper'>
                 {data.name}
+            </div>
+            <div className='name-wrapper'>
+                {data.stock} in stock
             </div>
         </div>
     );
 }
+
 
 export default BrowserHistory;

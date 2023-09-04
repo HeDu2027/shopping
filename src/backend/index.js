@@ -36,6 +36,8 @@ const updatefileRoutes=require('./routes/updateuser')
 const PersonalCenterRoutes=require('./routes/PersonalCenterRoutes')
 const productRoutes = require('./routes/product');
 
+const browserHistoryRouter = require('./routes/BrowserHistory'); // Replace 'path_to_your_router_file' with the actual path to your router file.
+
 const path = require('path');
 
 const app = express();
@@ -90,9 +92,12 @@ app.use('/user',updatefileRoutes)
 
 app.use('/user',PersonalCenterRoutes)
 
-
 app.use('/productcontainer/images', express.static(path.join('/Users/hedu/Desktop/shopping/src/client/data', 'image')));
 app.use('/product', productRoutes); // Use product routes
+app.use('/user', browserHistoryRouter);
+
+
+
 // app.use('/api', userRoutes);
 io.on('connection', (socket) => {
     //console.log('a user connected');

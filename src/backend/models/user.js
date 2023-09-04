@@ -77,14 +77,6 @@ const userSchema = new mongoose.Schema({
     // Favorites
     favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
 
-    // Browsing History
-    browsingHistory: [
-        {
-            productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-            browsedAt: { type: Date, default: Date.now }
-        }
-    ],
-
     // Purchase History
     purchaseHistory: [
         {
@@ -93,6 +85,7 @@ const userSchema = new mongoose.Schema({
             quantity: Number
         }
     ],
+
 
     // Followed Shops
     followedShops: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Shop' }]
